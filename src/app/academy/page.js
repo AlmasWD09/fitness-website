@@ -1,10 +1,133 @@
 "use client"
-import { useState, } from "react";
-import Image from "next/image";
+import { useEffect, useState, } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import { RiVideoFill } from "react-icons/ri";
+import { FaCircleCheck } from "react-icons/fa6";
+import Image from "next/image";
 
+// Accordion data
+const accordionData = [
+  {
+    id: 1,
+    title: "Series No 01 : Hatha yoga, Ashtanga...",
+    contentArray: [
+      {
+        id: 101,
+        title: "title 01",
+        content: "content 01",
+        video_url: "https://www.youtube.com/embed/XWniFyd9r4I?si=o2ALFJQg6-GvrX89"
+      },
+      {
+        id: 102,
+        title: "title 02",
+        content: "content 02",
+        video_url: "https://www.youtube.com/embed/kf6yyxMck8Y?si=IBOLucSUZGIybhXB"
+      },
+      {
+        id: 103,
+        title: "title 02",
+        content: "content 02",
+        video_url: "/video01.mp4"
+      }
+    ]
+  },
+  {
+    id: 2,
+    title: "Series No 02 : Hatha yoga, Ashtanga...",
+    contentArray: [
+      {
+        id: 201,
+        title: "title 01",
+        content: "content 01",
+        video_url: "link 01"
+      },
+      {
+        id: 202,
+        title: "title 02",
+        content: "content 02",
+        video_url: "link 02"
+      }
+    ]
+  },
+  {
+    id: 3,
+    title: "Series No 03 : Hatha yoga, Ashtanga...",
+    contentArray: [
+      {
+        id: 301,
+        title: "title 01",
+        content: "content 01",
+        video_url: "link 01"
+      },
+      {
+        id: 202,
+        title: "title 02",
+        content: "content 02",
+        video_url: "link 02"
+      }
+    ]
+  },
+  {
+    id: 4,
+    title: "Series No 04 : Hatha yoga, Ashtanga...",
+    contentArray: [
+      {
+        id: 401,
+        title: "title 01",
+        content: "content 01",
+        video_url: "link 01"
+      },
+      {
+        id: 202,
+        title: "title 02",
+        content: "content 02",
+        video_url: "link 02"
+      }
+    ]
+  },
+  {
+    id: 5,
+    title: "Series No 05 : Hatha yoga, Ashtanga...",
+    contentArray: [
+      {
+        id: 501,
+        title: "title 01",
+        content: "content 01",
+        video_url: "link 01"
+      },
+      {
+        id: 202,
+        title: "title 02",
+        content: "content 02",
+        video_url: "link 02"
+      }
+    ]
+  },
+
+];
+
+const reviewsData = [
+  "sssssssssssssssssssfffffffffffff",
+  "sssssssssssssssssssfffffffffffff",
+]
 const Academy = () => {
   const [showAll, setShowAll] = useState(false);
+  const [openItem, setOpenItem] = useState(1); // Tracks which accordion item is open
+  const [openItemDetails, setOpenItemDetails] = useState(accordionData[0].contentArray[0])
+  const [reviews, setReviews] = useState(() => {
+    const storedReviews = JSON.parse(localStorage.getItem("reviews")) || [
+      "sssssssssssssssssssfffffffffffff",
+      "sssssssssssssssssssfffffffffffff",
+    ];
+    return storedReviews;
+  });
+
+
+  // Handle click to toggle accordion items
+  const toggleItem = (id) => {
+    console.log(id, 'line 77')
+    setOpenItem(openItem === id ? null : id); // Toggle open/close
+  };
 
   const fitnessClasses = [
     {
@@ -35,11 +158,6 @@ const Academy = () => {
 
   ];
 
-  // video play data
-  const videoData = [
-    { id: 1, src: "https://youtu.be/sBBUbLgLGwU?si=P-5erqM4P2zDwGi8", type: "video/mp4" },
-
-  ];
 
 
   const displayedClasses = showAll ? fitnessClasses : fitnessClasses.slice(0, 3);
@@ -47,61 +165,119 @@ const Academy = () => {
     setShowAll(true);
   };
 
+
+
+  const handleClickAllDetails = (id, nestedID) => {
+    const findData = accordionData.find((accrodian) => {
+      return accrodian.id === id
+    })
+    const findNestedData = findData.contentArray.find((accordionNested) => {
+      return accordionNested.id === nestedID
+    })
+    setOpenItemDetails(findNestedData)
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // Get the new review from the form input
+    const newReview = event.target.comment.value;
+
+    // Update the reviews state and save it to localStorage
+    const updatedReviews = [...reviews, newReview];
+    setReviews(updatedReviews);
+    localStorage.setItem("reviews", JSON.stringify(updatedReviews));
+
+    // Clear the form input
+    event.target.reset();
+  };
+
+  useEffect(() => {
+    const storedReviews = JSON.parse(localStorage.getItem("reviews"));
+    if (storedReviews) {
+      setReviews(storedReviews);
+    }
+  }, []);
+
+
   return (
     <>
       <section className="container px-4 mx-auto mt-10 border-2 border-red-500">
-        <div className="flex justify-between p-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Video play */}
-          <div className="w-[50%] ">
-            <div>
-              {videoData.map((video) => (
-                <div key={video.id} style={{ marginBottom: "20px" }}>
-                  <video width="600" controls>
-                    <source src={video.src} type={video.type} />
-                  </video>
+          <div className="lg:col-span-2">
+            <iframe width="100%" height="400" src={openItemDetails.video_url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+          </div>
+
+
+          {/* Course content */}
+          <div className=" bg-sky-300 rounded-md h-[400px] overflow-y-auto">
+            <div className="container mx-auto mt-10 max-w-xl">
+              {accordionData.map((item) => (
+                <div
+                  key={item.id}
+                  className="border border-gray-300 rounded-lg mb-4 overflow-hidden shadow-sm"
+                >
+                  <button
+                    onClick={() => toggleItem(item.id)}
+                    className="w-full flex justify-between items-center p-4 bg-gray-100 text-gray-800 font-medium focus:outline-none"
+                  >
+                    <span>{item.title}</span>
+                    <span
+                      className={`transition-transform duration-300 ${openItem === item.id ? "rotate-180" : ""
+                        }`}
+                    >
+                      <IoIosArrowDown />
+                    </span>
+                  </button>
+
+
+                  {/* module here... */}
+                  {openItem === item.id && (
+
+                    item?.contentArray?.map((nestedItem, idx) => {
+                      console.log(nestedItem, 'line 168')
+                      return (
+                        <div onClick={() => handleClickAllDetails(item.id, nestedItem.id)} key={nestedItem.id} className="cursor-pointer hover:bg-slate-600 p-4 bg-white text-gray-600 border-b">
+                          <p className="flex  gap-2"><FaCircleCheck className="text-2xl" />{nestedItem.title}</p>
+                          <p className="flex items-center gap-2 ml-7"><RiVideoFill className="text-xl" />{nestedItem.content}</p>
+                        </div>
+                      )
+                    })
+
+                  )}
+
                 </div>
               ))}
             </div>
           </div>
-          {/* Course content */}
-          <div className="w-[50%] ">
-            <div className="mt-8 space-y-8 lg:mt-12">
-              <div className="p-4 bg-gray-100 rounded-lg dark:bg-gray-800">
-                <button className="flex items-center justify-between w-full">
-                  <h1 className="font-semibold text-gray-700 dark:text-white">
-                    How can I pay for my appointment?
-                  </h1>
-                  <span className="text-gray-4800 text-3xl">
-                    <IoIosArrowDown />
-                  </span>
-                </button>
-
-                <p className="mt-2 text-sm text-gray-500 dark:text-gray-300">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas eaque nobis,
-                </p>
-                <p className="mt-2 text-sm text-gray-500 dark:text-gray-300">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas eaque nobis,
-                </p>
-              </div>
-
-              <div className="p-8 bg-gray-100 rounded-lg dark:bg-gray-800">
-                <button className="flex items-center justify-between w-full">
-                  <h1 className="font-semibold text-gray-700 dark:text-white">
-                    Is the cost of the appointment covered by private health insurance?
-                  </h1>
-                  <span className="text-white bg-blue-500 rounded-full">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                    </svg>
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
 
+        {/* review or comment*/}
+        
+        <div>
+          <form onSubmit={(event) => handleSubmit(event)}>
+            <input className="border" type="text" name="comment"></input>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <div>
+          {
+            reviews.map((review, idx) => {
+              return (
+                <div key={idx}>
+
+                  <h1>{review}</h1>
+                </div>
+              )
+            })
+          }
+        </div>
+
+
+
         {/* More class */}
-        {/* <div>
+        <div>
           <div className="flex justify-between">
             <h2 className="text-[32px] font-medium font-noto text-gray-400">
               More Class Like This
@@ -126,7 +302,7 @@ const Academy = () => {
               </div>
             ))}
           </div>
-        </div> */}
+        </div>
       </section>
     </>
   );
