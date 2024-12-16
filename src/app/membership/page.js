@@ -52,7 +52,8 @@ const Membership = () => {
         {
           memberships.map((item, idx) => {
             return (
-              <div class="bg-white p-6 rounded-lg shadow-md ">
+              <div className="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between">
+                <div>
                 <div className='text-center'>
                   <h3 class="text-lg font-semibold text-gray-700 mb-2">{item.name}</h3>
                   <div className="flex justify-center mb-4">
@@ -62,12 +63,13 @@ const Membership = () => {
                 </div>
                 <ul className=" text-gray-600 mb-4 space-y-3">
                   {item.features.map((feature, index) => (
-                    <li key={index} className="flex items-center max-w-[253px] mx-auto ">
-                      <span className="mr-2"><FaCircleCheck /></span>
+                    <li key={index} className="flex max-w-[253px] mx-auto ">
+                      <span className="mr-2 mt-1"><FaCircleCheck /></span>
                       {feature}
                     </li>
                   ))}
                 </ul>
+                </div>
                 <div className='w-full flex justify-center'>
                   <button className='bg-black text-white hover:text-primary font-semibold font-noto lg:mx-5 px-24 py-2'>Buy Now</button>
                 </div>
