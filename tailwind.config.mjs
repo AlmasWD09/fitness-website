@@ -8,8 +8,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary:'#b47000'
+      },
+      fontFamily: {
+        noto: ["'Noto Serif',' serif'"],
       },
     },
   },

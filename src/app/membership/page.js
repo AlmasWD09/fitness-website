@@ -1,0 +1,89 @@
+import { FaCircleCheck } from "react-icons/fa6";
+
+const Membership = () => {
+  const memberships = [
+    {
+      "name": "Basic Membership",
+      "price": "48 CND",
+      "duration": "Monthly",
+      "features": [
+        "On-demand Access to workout library",
+        "3 New Classes Every Week",
+        "Join a Global Community",
+        "Fitness Fusion Hub",
+        "The Vitality Oasis Gym",
+        "Active Lifestyle Emporium"
+      ],
+      "button_text": "Buy Now"
+    },
+    {
+      "name": "Standard Membership",
+      "price": "70 CND",
+      "duration": "4 Month",
+      "features": [
+        "Empowerment Fitness Sanctuary",
+        "Elite Performance Emporium",
+        "Strength and Stamina Studios",
+        "Fitness Fusion Hub",
+        "The Vitality Oasis Gym",
+        "Active Lifestyle Emporium"
+      ],
+      "button_text": "Buy Now"
+    },
+    {
+      "name": "Premium Membership",
+      "price": "120 CND",
+      "duration": "1 Year",
+      "features": [
+        "Empowerment Fitness Sanctuary",
+        "Elite Performance Emporium",
+        "Strength and Stamina Studios",
+        "Fitness Fusion Hub",
+        "The Vitality Oasis Gym",
+        "Active Lifestyle Emporium"
+      ],
+      "button_text": "Buy Now"
+    }
+  ]
+
+  return (
+    <div class="container mx-auto  px-4 py-8">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 ">
+        {
+          memberships.map((item, idx) => {
+            return (
+              <div class="bg-white p-6 rounded-lg shadow-md ">
+                <div className='text-center'>
+                  <h3 class="text-lg font-semibold text-gray-700 mb-2">{item.name}</h3>
+                  <div className="flex justify-center mb-4">
+                    <h1 class="text-3xl font-bold text-yellow-600">{item.price}</h1>
+                    <p class="text-gray-500 mt-4">{item.duration}</p>
+                  </div>
+                </div>
+                <ul className=" text-gray-600 mb-4 space-y-3">
+                  {item.features.map((feature, index) => (
+                    <li key={index} className="flex items-center max-w-[253px] mx-auto ">
+                      <span className="mr-2"><FaCircleCheck /></span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <div className='w-full flex justify-center'>
+                  <button className='bg-black text-white hover:text-primary font-semibold font-noto lg:mx-5 px-24 py-2'>Buy Now</button>
+                </div>
+              </div>
+            )
+          })
+        }
+
+      </div>
+
+      {/* content */}
+      <div className="my-16 text-wrap">
+        <p><span className="font-bold font-noto">Note:</span>  stablished fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy</p>
+      </div>
+    </div>
+  )
+}
+
+export default Membership
