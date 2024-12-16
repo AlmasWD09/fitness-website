@@ -5,6 +5,31 @@ import { IoIosArrowDown } from "react-icons/io";
 
 const Academy = () => {
   const [showAll, setShowAll] = useState(false);
+  const [openItem, setOpenItem] = useState(null); // Tracks which accordion item is open
+
+  // Accordion data
+  const accordionData = [
+    {
+      id: 1,
+      title: "What is Next.js?",
+      content: "Next.js is a React framework for production. It provides features like server-side rendering and static site generation.",
+    },
+    {
+      id: 2,
+      title: "What is Tailwind CSS?",
+      content: "Tailwind CSS is a utility-first CSS framework for rapidly building custom user interfaces.",
+    },
+    {
+      id: 3,
+      title: "Why use Next.js?",
+      content: "Next.js makes it easy to build fast, user-friendly web applications with excellent SEO capabilities.",
+    },
+  ];
+
+  // Handle click to toggle accordion items
+  const toggleItem = (id) => {
+    setOpenItem(openItem === id ? null : id); // Toggle open/close
+  };
 
   const fitnessClasses = [
     {
@@ -35,9 +60,9 @@ const Academy = () => {
 
   ];
 
-  // video play data
+  // video data
   const videoData = [
-    { id: 1, src: "https://youtu.be/sBBUbLgLGwU?si=P-5erqM4P2zDwGi8", type: "video/mp4" },
+    { id: 1, src: "/video01.mp4" },
 
   ];
 
@@ -52,56 +77,57 @@ const Academy = () => {
       <section className="container px-4 mx-auto mt-10 border-2 border-red-500">
         <div className="flex justify-between p-4">
           {/* Video play */}
-          <div className="w-[50%] ">
-            <div>
-              {videoData.map((video) => (
-                <div key={video.id} style={{ marginBottom: "20px" }}>
-                  <video width="600" controls>
-                    <source src={video.src} type={video.type} />
-                  </video>
-                </div>
-              ))}
-            </div>
+        <div className="w-[50%]">
+          <div>
+            {videoData.map((video) => (
+              <div key={video.id} style={{ marginBottom: "20px" }}>
+                <iframe
+                  width="600"
+                  height="400"
+                  src={video.src}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title={`YouTube Video ${video.id}`}
+                ></iframe>
+              </div>
+            ))}
           </div>
+        </div>
+
+
           {/* Course content */}
           <div className="w-[50%] ">
-            <div className="mt-8 space-y-8 lg:mt-12">
-              <div className="p-4 bg-gray-100 rounded-lg dark:bg-gray-800">
-                <button className="flex items-center justify-between w-full">
-                  <h1 className="font-semibold text-gray-700 dark:text-white">
-                    How can I pay for my appointment?
-                  </h1>
-                  <span className="text-gray-4800 text-3xl">
-                    <IoIosArrowDown />
-                  </span>
-                </button>
-
-                <p className="mt-2 text-sm text-gray-500 dark:text-gray-300">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas eaque nobis,
-                </p>
-                <p className="mt-2 text-sm text-gray-500 dark:text-gray-300">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas eaque nobis,
-                </p>
-              </div>
-
-              <div className="p-8 bg-gray-100 rounded-lg dark:bg-gray-800">
-                <button className="flex items-center justify-between w-full">
-                  <h1 className="font-semibold text-gray-700 dark:text-white">
-                    Is the cost of the appointment covered by private health insurance?
-                  </h1>
-                  <span className="text-white bg-blue-500 rounded-full">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                    </svg>
-                  </span>
-                </button>
-              </div>
+            <div className="container mx-auto mt-10 max-w-xl">
+              {accordionData.map((item) => (
+                <div
+                  key={item.id}
+                  className="border border-gray-300 rounded-lg mb-4 overflow-hidden shadow-sm"
+                >
+                  <button
+                    onClick={() => toggleItem(item.id)}
+                    className="w-full flex justify-between items-center p-4 bg-gray-100 text-gray-800 font-medium focus:outline-none"
+                  >
+                    <span>{item.title}</span>
+                    <span
+                      className={`transition-transform duration-300 ${openItem === item.id ? "rotate-180" : ""
+                        }`}
+                    >
+                      <IoIosArrowDown />
+                    </span>
+                  </button>
+                  {openItem === item.id && (
+                    <div className="p-4 bg-white text-gray-600">
+                      {item.content}
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
         {/* More class */}
-        {/* <div>
+        <div>
           <div className="flex justify-between">
             <h2 className="text-[32px] font-medium font-noto text-gray-400">
               More Class Like This
@@ -126,7 +152,7 @@ const Academy = () => {
               </div>
             ))}
           </div>
-        </div> */}
+        </div>
       </section>
     </>
   );
