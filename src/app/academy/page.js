@@ -2,32 +2,64 @@
 import { useState, } from "react";
 import Image from "next/image";
 import { IoIosArrowDown } from "react-icons/io";
+import { RiVideoFill } from "react-icons/ri";
+import { FaCircleCheck } from "react-icons/fa6";
 
+// Accordion data
+const accordionData = [
+  {
+    id: 1,
+    title: "Series No 01 : Hatha yoga, Ashtanga...",
+    contentArray: [
+      {
+        id: 101,
+        title: "title 01",
+        content: "content 01",
+        video_url: "https://www.youtube.com/embed/XWniFyd9r4I?si=o2ALFJQg6-GvrX89"
+      },
+      {
+        id: 102,
+        title: "title 02",
+        content: "content 02",
+        video_url: "https://www.youtube.com/embed/kf6yyxMck8Y?si=IBOLucSUZGIybhXB"
+      },
+      {
+        id: 103,
+        title: "title 02",
+        content: "content 02",
+        video_url: "/video01.mp4"
+      }
+    ]
+  },
+  {
+    id: 2,
+    title: " Ashtanga...",
+    contentArray: [
+      {
+        id: 201,
+        title: "title 01",
+        content: "content 01",
+        video_url: "link 01"
+      },
+      {
+        id: 202,
+        title: "title 02",
+        content: "content 02",
+        video_url: "link 02"
+      }
+    ]
+  },
+ 
+];
 const Academy = () => {
   const [showAll, setShowAll] = useState(false);
-  const [openItem, setOpenItem] = useState(null); // Tracks which accordion item is open
+  const [openItem, setOpenItem] = useState(1); // Tracks which accordion item is open
+  const [openItemDetails, setOpenItemDetails] = useState(accordionData[0].contentArray[0])
 
-  // Accordion data
-  const accordionData = [
-    {
-      id: 1,
-      title: "What is Next.js?",
-      content: "Next.js is a React framework for production. It provides features like server-side rendering and static site generation.",
-    },
-    {
-      id: 2,
-      title: "What is Tailwind CSS?",
-      content: "Tailwind CSS is a utility-first CSS framework for rapidly building custom user interfaces.",
-    },
-    {
-      id: 3,
-      title: "Why use Next.js?",
-      content: "Next.js makes it easy to build fast, user-friendly web applications with excellent SEO capabilities.",
-    },
-  ];
 
   // Handle click to toggle accordion items
   const toggleItem = (id) => {
+    console.log(id, 'line 77')
     setOpenItem(openItem === id ? null : id); // Toggle open/close
   };
 
@@ -60,11 +92,6 @@ const Academy = () => {
 
   ];
 
-  // video data
-  const videoData = [
-    { id: 1, src: "/video01.mp4" },
-
-  ];
 
 
   const displayedClasses = showAll ? fitnessClasses : fitnessClasses.slice(0, 3);
@@ -72,31 +99,32 @@ const Academy = () => {
     setShowAll(true);
   };
 
+
+
+const handleClickAllDetails = (id,nestedID) =>{
+ const findData = accordionData.find((accrodian)=>{
+ return accrodian.id === id
+ })
+ const findNestedData = findData.contentArray.find((accordionNested)=>{
+  return accordionNested.id === nestedID
+ })
+ setOpenItemDetails(findNestedData)
+}
+
+
+
   return (
     <>
       <section className="container px-4 mx-auto mt-10 border-2 border-red-500">
-        <div className="flex justify-between p-4">
+        <div className="flex justify-between py-4">
           {/* Video play */}
-        <div className="w-[50%]">
-          <div>
-            {videoData.map((video) => (
-              <div key={video.id} style={{ marginBottom: "20px" }}>
-                <iframe
-                  width="600"
-                  height="400"
-                  src={video.src}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title={`YouTube Video ${video.id}`}
-                ></iframe>
-              </div>
-            ))}
+          <div className="w-[50%]">
+          <iframe width="560" height="315" src={openItemDetails.video_url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
           </div>
-        </div>
 
 
           {/* Course content */}
-          <div className="w-[50%] ">
+          <div className="w-[50%] bg-sky-300 rounded-md h-[400px] overflow-y-auto">
             <div className="container mx-auto mt-10 max-w-xl">
               {accordionData.map((item) => (
                 <div
@@ -115,44 +143,29 @@ const Academy = () => {
                       <IoIosArrowDown />
                     </span>
                   </button>
+
+
+                  {/* module here... */}
                   {openItem === item.id && (
-                    <div className="p-4 bg-white text-gray-600">
-                      {item.content}
-                    </div>
+
+                    item?.contentArray?.map((nestedItem, idx) => {
+                      console.log(nestedItem, 'line 168')
+                      return (
+                        <div onClick={()=> handleClickAllDetails(item.id,nestedItem.id)} key={nestedItem.id} className="cursor-pointer hover:bg-slate-600 p-4 bg-white text-gray-600 border-b">
+                          <p className="flex  gap-2"><FaCircleCheck className="text-2xl" />{nestedItem.title}</p>
+                          <p className="flex items-center gap-2 ml-7"><RiVideoFill className="text-xl" />{nestedItem.content}</p>
+                        </div>
+                      )
+                    })
+
                   )}
+
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* More class */}
-        <div>
-          <div className="flex justify-between">
-            <h2 className="text-[32px] font-medium font-noto text-gray-400">
-              More Class Like This
-            </h2>
-            {!showAll && ( // Only show "View All" if not all items are displayed
-              <button
-                className="text-primary text-[32px] font-medium font-noto underline"
-                onClick={handleViewAllClick}
-              >
-                View All
-              </button>
-            )}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-            {displayedClasses.map((fitness, idx) => (
-              <div key={idx}>
-                <Image className="h-60 object-cover" src={fitness.image} alt={fitness.title} height={500} width={500} />
-                <div className="flex justify-between">
-                  <h3>{fitness.title}</h3>
-                  <button className="bg-black text-white px-4 py-2">Details</button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
     </>
   );
