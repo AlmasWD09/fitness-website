@@ -41,7 +41,7 @@ const Cart = () => {
       ];
   return (
     <>
-     <div className="container mx-auto p-4">
+     <div className="container mx-auto px-4 pt-32 pb-20">
       <div>
         <div className="flex items-center">
         <span className=""><Link href="/"><FaHome /></Link></span>
@@ -51,11 +51,18 @@ const Cart = () => {
       <h1 className="text-2xl font-semibold mb-6 text-gray-500 font-noto">Cart History</h1>
       </div>
       <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+     {
+      cartItems.length === 0 ? <div className="text-white text-center bg-primary max-w-[300px] mx-auto py-8 space-y-4">
+        <h1 className="text-3xl text-center font-bold  uppercase">Data not found</h1>
+        <p className="text-2xl">Please Data Add</p>
+      </div>
+      :
       <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
       {cartItems.map((item) => (
         <CartItem key={item.id} item={item} />
       ))}
     </div>
+     }
     </div>
     </div>
     </>

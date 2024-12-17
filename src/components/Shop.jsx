@@ -1,5 +1,6 @@
 "use client"
 import Image from "next/image"
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { RiShoppingCartLine } from "react-icons/ri"
 
@@ -7,7 +8,7 @@ import { RiShoppingCartLine } from "react-icons/ri"
 
 const Shop = () => {
     const [showAll, setShowAll] = useState(false);
-
+    const router = useRouter();
     const shops = [
         {
             id: 1,
@@ -52,6 +53,9 @@ const Shop = () => {
         setShowAll(true);
     };
 
+    const handleCartClick = (id) =>{
+        router.push("/cart");
+    }
     return (
         <section className="container mx-auto px-4 mt-8 md:mt-20">
             <div>
@@ -72,7 +76,9 @@ const Shop = () => {
                     {displayedshops.map((shop, idx) => (
                         <div key={idx} className="lg:w-[300px] border p-5 ">
                             <div className="flex justify-end">
-                                <button className="text-primary hover:bg-primaryGray/10 p-4 rounded-full"><RiShoppingCartLine className="text-2xl" /></button>
+                                <button onClick={()=>handleCartClick(shop.id)} className="text-primary hover:bg-primaryGray/10 p-4 rounded-full">
+                                <RiShoppingCartLine className="text-2xl" />
+                                </button>
                             </div>
                             <div className="flex lg:py-16 justify-center">
                                 <Image src={shop.image} alt="shop" width={100} height={100} />

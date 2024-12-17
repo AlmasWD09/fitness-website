@@ -23,8 +23,8 @@ const Navbar = () => {
       title: "Academy to Studio",
     },
     {
-      path: "/shop",
-      title: "Shop",
+      path: "/membership",
+      title: "MemberShip",
     },
     {
       path: "/about",
@@ -80,7 +80,10 @@ const Navbar = () => {
           {/* button start  */}
           <div className="group relative hidden lg:flex items-center gap-8">
             <div className="flex items-center gap-8">
-            <HiOutlineShoppingCart className="text-2xl"/>
+            <div>
+            <HiOutlineShoppingCart className="relative text-2xl"/>
+            <p className="absolute -top-1 left-2 w-6 h-6 bg-primary text-white rounded-full flex justify-center items-center text-xs">0</p>
+            </div>
             <FiSearch className="text-2xl"/>
             </div>
            <div className="flex items-center gap-4">

@@ -48,16 +48,16 @@ const Membership = () => {
   ]
 
   return (
-    <div className="container mx-auto  px-4 py-8">
-      <h2 className="font-noto text-4xl py-4">Free Class</h2>
+    <div className="container mx-auto  px-4 pt-16 md:pt-24">
+      <h2 className="font-noto text-4xl text-primaryGray py-4">Free Class</h2>
       <div className="rounded-md">
       <iframe className="rounded-md" width="100%" height="600" src="https://www.youtube.com/embed/FBs0l6cxl1o?si=StyUg6AlcQwJZtKq" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
       </div>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 ">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mt-28">
         {
           memberships?.map((item, idx) => {
             return (
-              <div key={idx} className="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between">
+              <div key={idx} className="bg-white border p-6 rounded-lg shadow-md flex flex-col justify-between">
                 <div>
                 <div className='text-center'>
                   <h3 className="text-lg font-semibold text-gray-700 mb-2">{item.name}</h3>
@@ -76,7 +76,7 @@ const Membership = () => {
                 </ul>
                 </div>
                 <div className='w-full flex justify-center'>
-                  <button className='bg-black text-white hover:text-primary font-semibold font-noto lg:mx-5 px-24 py-2'>Buy Now</button>
+                  <button className='bg-[#2F2F2F] text-white hover:text-primary font-semibold font-noto lg:mx-5 px-24 py-2'>Buy Now</button>
                 </div>
               </div>
             )
