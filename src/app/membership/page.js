@@ -1,3 +1,4 @@
+"use client"
 import { FaCircleCheck } from "react-icons/fa6";
 
 const Membership = () => {
@@ -47,18 +48,22 @@ const Membership = () => {
   ]
 
   return (
-    <div class="container mx-auto  px-4 py-8">
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 ">
+    <div className="container mx-auto  px-4 py-8">
+      <h2 className="font-noto text-4xl py-4">Free Class</h2>
+      <div className="rounded-md">
+      <iframe className="rounded-md" width="100%" height="600" src="https://www.youtube.com/embed/FBs0l6cxl1o?si=StyUg6AlcQwJZtKq" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+      </div>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 ">
         {
-          memberships.map((item, idx) => {
+          memberships?.map((item, idx) => {
             return (
-              <div className="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between">
+              <div key={idx} className="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between">
                 <div>
                 <div className='text-center'>
-                  <h3 class="text-lg font-semibold text-gray-700 mb-2">{item.name}</h3>
+                  <h3 className="text-lg font-semibold text-gray-700 mb-2">{item.name}</h3>
                   <div className="flex justify-center mb-4">
-                    <h1 class="text-3xl font-bold text-yellow-600">{item.price}</h1>
-                    <p class="text-gray-500 mt-4">{item.duration}</p>
+                    <h1 className="text-3xl font-bold text-yellow-600">{item.price}</h1>
+                    <p className="text-gray-500 mt-4">{item.duration}</p>
                   </div>
                 </div>
                 <ul className=" text-gray-600 mb-4 space-y-3">
