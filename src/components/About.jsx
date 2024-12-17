@@ -3,11 +3,11 @@ import Image from "next/image"
 
 const About = () => {
     return (
-      <section className="container mx-auto px-4 mt-8 md:mt-20">
-              <div className="lg:flex justify-center items-center ">
+      <section className="container mx-auto px-4 mt-8 lg:mt-20">
+              <div className="flex flex-col lg:flex-row justify-center items-center gap-20 lg:gap-0">
 
                 {/* left side image */}
-                  <div className="lg:w-[541px] relative ">
+                  <div className="lg:w-[541px] relative order-2 lg:order-1">
                     {/* medium device */}
                     <div className="hidden md:block">
                       <div className="relative">
@@ -34,7 +34,7 @@ const About = () => {
                   </div>
 
                   {/* right side content */}
-                  <div className="lg:w-[639px] mt-10 md:mt-56 lg:mt-0 flex items-center ">
+                  <div className="lg:w-[639px] lg:mt-56 flex items-center order-1 lg:order-2">
                       <div>
                       <button className="bg-primary text-white px-8 py-3 rounded-md">About Us</button>
                       <h3 className="lg:text-5xl text-3xl font-noto text-[#3F2700] font-semibold my-6">Why You Choose Us </h3>

@@ -113,7 +113,7 @@ const reviewsData = [
 ]
 const Academy = () => {
   const [showAll, setShowAll] = useState(false);
-  const [openItem, setOpenItem] = useState(1); // Tracks which accordion item is open
+  const [openItem, setOpenItem] = useState(null); // Tracks which accordion item is open
   const [openItemDetails, setOpenItemDetails] = useState(accordionData[0].contentArray[0])
   const [reviews, setReviews] = useState(() => {
     // const storedReviews = JSON.parse(localStorage.getItem("reviews")) || [
@@ -126,7 +126,6 @@ const Academy = () => {
 
   // Handle click to toggle accordion items
   const toggleItem = (id) => {
-    console.log(id, 'line 77')
     setOpenItem(openItem === id ? null : id); // Toggle open/close
   };
 
