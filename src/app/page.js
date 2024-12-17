@@ -14,8 +14,8 @@ export default function Home() {
       <Banner />
       <MembershipOptions />
       <Shop />
-      {/* <About />
-      <Faq />
+      <About />
+      {/* <Faq />
       <FreeClass />
       <Testimonial /> */}
     </div>

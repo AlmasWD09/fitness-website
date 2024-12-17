@@ -53,7 +53,7 @@ const Shop = () => {
     };
 
     return (
-        <section className="container mx-auto px-4 mt-20">
+        <section className="container mx-auto px-4 mt-8 md:mt-20">
             <div>
                 <div className="flex justify-between">
                     <h2 className="text-[48px] font-medium font-noto text-[#3F2700]">

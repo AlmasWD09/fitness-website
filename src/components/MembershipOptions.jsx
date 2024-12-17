@@ -1,7 +1,7 @@
 
 const MembershipOptions = () => {
     return (
-      <section className="container mx-auto px-4 mt-20">
+      <section className="container mx-auto px-4 mt-8 md:mt-20">
                   <h3 className="md:text-5xl text-3xl mb-12 font-semibold text-center text-[#3F2700]">Membership Options</h3>
 
                   <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4">
