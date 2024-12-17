@@ -8,7 +8,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary:'#b47000'
+        primary:'#b47000',
+        primaryGray:'#555555'
       },
       fontFamily: {
         noto: ["'Noto Serif',' serif'"],

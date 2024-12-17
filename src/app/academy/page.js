@@ -4,6 +4,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { RiVideoFill } from "react-icons/ri";
 import { FaCircleCheck } from "react-icons/fa6";
 import Image from "next/image";
+import PieChart from "@/components/PieChart";
 
 // Accordion data
 const accordionData = [
@@ -115,11 +116,11 @@ const Academy = () => {
   const [openItem, setOpenItem] = useState(1); // Tracks which accordion item is open
   const [openItemDetails, setOpenItemDetails] = useState(accordionData[0].contentArray[0])
   const [reviews, setReviews] = useState(() => {
-    const storedReviews = JSON.parse(localStorage.getItem("reviews")) || [
-      "sssssssssssssssssssfffffffffffff",
-      "sssssssssssssssssssfffffffffffff",
-    ];
-    return storedReviews;
+    // const storedReviews = JSON.parse(localStorage.getItem("reviews")) || [
+    //   "sssssssssssssssssssfffffffffffff",
+    //   "sssssssssssssssssssfffffffffffff",
+    // ];
+    // return storedReviews;
   });
 
 
@@ -184,9 +185,9 @@ const Academy = () => {
     const newReview = event.target.comment.value;
 
     // Update the reviews state and save it to localStorage
-    const updatedReviews = [...reviews, newReview];
-    setReviews(updatedReviews);
-    localStorage.setItem("reviews", JSON.stringify(updatedReviews));
+    // const updatedReviews = [...reviews, newReview];
+    // setReviews(updatedReviews);
+    // localStorage.setItem("reviews", JSON.stringify(updatedReviews));
 
     // Clear the form input
     event.target.reset();
@@ -198,7 +199,8 @@ const Academy = () => {
       setReviews(storedReviews);
     }
   }, []);
-
+const complete = 78;
+const uncomplete = 22
 
   return (
     <>
@@ -253,9 +255,11 @@ const Academy = () => {
           </div>
         </div>
 
+<PieChart complete={complete} uncomplete={uncomplete} />
+
         {/* review or comment*/}
         
-        <div>
+        {/* <div>
           <form onSubmit={(event) => handleSubmit(event)}>
             <input className="border" type="text" name="comment"></input>
             <button type="submit">Submit</button>
@@ -263,7 +267,7 @@ const Academy = () => {
         </div>
         <div>
           {
-            reviews.map((review, idx) => {
+            reviews?.map((review, idx) => {
               return (
                 <div key={idx}>
 
@@ -272,12 +276,12 @@ const Academy = () => {
               )
             })
           }
-        </div>
+        </div> */}
 
 
 
         {/* More class */}
-        <div>
+        {/* <div>
           <div className="flex justify-between">
             <h2 className="text-[32px] font-medium font-noto text-gray-400">
               More Class Like This
@@ -302,7 +306,7 @@ const Academy = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </section>
     </>
   );
