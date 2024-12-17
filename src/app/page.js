@@ -5,19 +5,19 @@ import FreeClass from "@/components/FreeClass";
 import MembershipOptions from "@/components/MembershipOptions";
 import Shop from "@/components/Shop";
 import Testimonial from "@/components/Testimonial";
-import Image from "next/image";
+
 
 export default function Home() {
   return (
     <>
     <div>
       <Banner />
-      <MembershipOptions />
+      {/* <MembershipOptions />
       <Shop />
       <About />
       <Faq />
       <FreeClass />
-      <Testimonial />
+      <Testimonial /> */}
     </div>
     </>
   );
