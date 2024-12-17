@@ -1,7 +1,7 @@
 "use client"
-import CartItem from "@/components/CartItem";
 import Link from "next/link";
 import { FaHome } from "react-icons/fa";
+import CartItem from "../../components/CartItem";
 
 
 const Cart = () => {
