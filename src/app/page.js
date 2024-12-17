@@ -12,9 +12,9 @@ export default function Home() {
     <>
     <div>
       <Banner />
-      {/* <MembershipOptions />
+      <MembershipOptions />
       <Shop />
-      <About />
+      {/* <About />
       <Faq />
       <FreeClass />
       <Testimonial /> */}

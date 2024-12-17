@@ -281,7 +281,7 @@ const uncomplete = 22
 
 
         {/* More class */}
-        {/* <div>
+        <div>
           <div className="flex justify-between">
             <h2 className="text-[32px] font-medium font-noto text-gray-400">
               More Class Like This
@@ -306,7 +306,7 @@ const uncomplete = 22
               </div>
             ))}
           </div>
-        </div> */}
+        </div>
       </section>
     </>
   );
