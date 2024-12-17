@@ -15,7 +15,7 @@ import Image from 'next/image';
 
 const Testimonial = () => {
     return (
-        <section className="container mx-auto px-4 lg:px-40 mb-10 border-2 border-red-500">
+        <section className="container mx-auto px-4 lg:px-40 mt-20 border-2 border-red-500">
             <h1 className="text-[24px] lg:text-[48px] text-primaryGray font-semibold font-noto text-center mb-10">
                 What clients saying
             </h1>

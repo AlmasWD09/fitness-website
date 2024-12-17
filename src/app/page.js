@@ -16,8 +16,8 @@ export default function Home() {
       <Shop />
       <About />
       <Faq />
-      {/* <FreeClass />
-      <Testimonial /> */}
+      <FreeClass />
+      <Testimonial />
     </div>
     </>
   );
