@@ -4,7 +4,6 @@ import { IoIosArrowDown } from "react-icons/io";
 import { RiVideoFill } from "react-icons/ri";
 import { FaCircleCheck } from "react-icons/fa6";
 import Image from "next/image";
-import PieChart from "@/components/PieChart";
 
 // Accordion data
 const accordionData = [
@@ -198,8 +197,6 @@ const Academy = () => {
       setReviews(storedReviews);
     }
   }, []);
-const complete = 78;
-const uncomplete = 22
 
   return (
     <>
@@ -253,8 +250,6 @@ const uncomplete = 22
             </div>
           </div>
         </div>
-
-<PieChart complete={complete} uncomplete={uncomplete} />
 
         {/* review or comment*/}
         
