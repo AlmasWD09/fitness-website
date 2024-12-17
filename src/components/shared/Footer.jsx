@@ -67,9 +67,9 @@ const Footer = () => {
 
             {/* Bottom Footer */}
             <div className="w-full  bg-[#07060A]">
-                <div className="px-4 h-[50px] flex items-center justify-between lg:px-0 lg:max-w-[1320px] mx-auto">
-                    <div className="flex gap-2 text-white border-r lg:pr-[450px]">
-                        <p className="border-r pr-3">2024Spaktech. Agency</p>
+                <div className="p-4 flex flex-col lg:flex-row  items-center justify-between lg:px-0 lg:max-w-[1320px] mx-auto">
+                    <div className="flex gap-2 text-white md:border-r md:pr-[450px] pb-4">
+                        <p className="md:border-r pr-3">2024Spaktech. Agency</p>
                         <p>All Right Reserved</p>
                     </div>
                     <div className="flex items-center gap-5 text-white">
