@@ -19,21 +19,27 @@ const accordionData = [
     contentArray: [
       {
         id: 101,
-        title: "title 01",
-        content: "content 01",
-        video_url: "https://www.youtube.com/embed/XWniFyd9r4I?si=o2ALFJQg6-GvrX89"
+        title: "45-min advance vinyasa yoga",
+        content: "This section introduces you to the foundational principles of Hatha yoga, including breathing techniques, basic poses, and their benefits. You'll learn how to align your body and mind through guided exercises designed for beginners.",
+        video_url: "https://www.youtube.com/embed/XWniFyd9r4I?si=o2ALFJQg6-GvrX89",
+        tipic: "Yoga",
+        date: "03/12/2024"
       },
       {
         id: 102,
-        title: "title 02",
-        content: "content 02",
-        video_url: "https://www.youtube.com/embed/kf6yyxMck8Y?si=IBOLucSUZGIybhXB"
+        title: "Mastering Ashtanga yoga steps",
+        content: "Explore the step-by-step progression of Ashtanga yoga with detailed instructions for each posture. This section focuses on developing strength, flexibility, and endurance, ensuring a comprehensive understanding of the practice.",
+        video_url: "https://www.youtube.com/embed/kf6yyxMck8Y?si=IBOLucSUZGIybhXB",
+        tipic: "Ashtanga Steps",
+        date: "04/12/2024"
       },
       {
         id: 103,
-        title: "title 02",
-        content: "content 02",
-        video_url: "/video01.mp4"
+        title: "Video demonstration of techniques",
+        content: "Watch a practical demonstration of key yoga techniques to enhance your practice. This video offers visual guidance, making it easier to follow along and perfect your form.",
+        video_url: "/video01.mp4",
+        tipic: "Yoga Techniques Demo",
+        date: "05/12/2024"
       }
     ]
   },
@@ -43,15 +49,19 @@ const accordionData = [
     contentArray: [
       {
         id: 201,
-        title: "title 01",
-        content: "content 01",
-        video_url: "link 01"
+        title: "Advanced Hatha yoga postures",
+        content: "Dive deeper into Hatha yoga with advanced postures and their benefits for flexibility and strength. This section includes variations of classic poses to challenge your abilities and enhance your practice.",
+        video_url: "link 01",
+        tipic: "Advanced Hatha",
+        date: "06/12/2024"
       },
       {
         id: 202,
-        title: "title 02",
-        content: "content 02",
-        video_url: "link 02"
+        title: "Ashtanga flow explained",
+        content: "Understand the flow of Ashtanga yoga and how to seamlessly transition between poses. This part emphasizes synchronization of breath with movement, promoting a meditative and energizing experience.",
+        video_url: "link 02",
+        tipic: "Ashtanga Flow",
+        date: "07/12/2024"
       }
     ]
   },
@@ -61,15 +71,19 @@ const accordionData = [
     contentArray: [
       {
         id: 301,
-        title: "title 01",
-        content: "content 01",
-        video_url: "link 01"
+        title: "Meditation with Hatha yoga",
+        content: "Learn how to combine meditation techniques with Hatha yoga for mental clarity and relaxation. This section guides you through mindfulness exercises that complement yoga postures to achieve a holistic sense of well-being.",
+        video_url: "link 01",
+        tipic: "Meditation Techniques",
+        date: "08/12/2024"
       },
       {
-        id: 202,
-        title: "title 02",
-        content: "content 02",
-        video_url: "link 02"
+        id: 302,
+        title: "Breath control in Ashtanga",
+        content: "Discover the importance of breath control in Ashtanga yoga and practice guided exercises. This part focuses on pranayama techniques that enhance energy flow and improve concentration.",
+        video_url: "link 02",
+        tipic: "Breath Control",
+        date: "09/12/2024"
       }
     ]
   },
@@ -79,15 +93,19 @@ const accordionData = [
     contentArray: [
       {
         id: 401,
-        title: "title 01",
-        content: "content 01",
-        video_url: "link 01"
+        title: "Building strength with Hatha yoga",
+        content: "Focus on strength-building postures in Hatha yoga and their impact on overall fitness. This section includes a detailed breakdown of poses that target core, upper body, and lower body strength.",
+        video_url: "link 01",
+        tipic: "Strength Building",
+        date: "10/12/2024"
       },
       {
-        id: 202,
-        title: "title 02",
-        content: "content 02",
-        video_url: "link 02"
+        id: 402,
+        title: "Dynamic sequences in Ashtanga",
+        content: "Practice dynamic sequences in Ashtanga yoga to improve coordination and balance. This section offers a structured approach to mastering challenging transitions with ease and confidence.",
+        video_url: "link 02",
+        tipic: "Dynamic Sequences",
+        date: "11/12/2024"
       }
     ]
   },
@@ -97,20 +115,28 @@ const accordionData = [
     contentArray: [
       {
         id: 501,
-        title: "title 01",
-        content: "content 01",
-        video_url: "link 01"
+        title: "Restorative Hatha yoga",
+        content: "Explore restorative poses in Hatha yoga that promote deep relaxation and healing. This section emphasizes gentle stretches and supportive postures to rejuvenate your body and mind.",
+        video_url: "link 01",
+        tipic: "Restorative Yoga",
+        date: "12/12/2024"
       },
       {
-        id: 202,
-        title: "title 02",
-        content: "content 02",
-        video_url: "link 02"
+        id: 502,
+        title: "Ashtanga yoga for beginners",
+        content: "A beginner-friendly guide to starting Ashtanga yoga with simple and effective poses. This section provides clear instructions and tips for building a consistent and enjoyable practice.",
+        video_url: "link 02",
+        tipic: "Beginner Ashtanga",
+        date: "13/12/2024"
       }
     ]
-  },
-
+  }
 ];
+
+
+
+
+
 
 const reviewsData = [
   "sssssssssssssssssssfffffffffffff",
@@ -128,6 +154,7 @@ const Academy = () => {
     // return storedReviews;
   });
 
+  console.log(openItemDetails, 'line 231----->')
 
   // Handle click to toggle accordion items
   const toggleItem = (id) => {
@@ -219,35 +246,108 @@ const Academy = () => {
         </div>
 
         {/* search field */}
-        <div class="flex justify-end items-center bg-primary p-2 my-5">
-          <div class="relative flex items-center w-full max-w-md">
+        <div className="flex justify-end items-center bg-primary p-2 my-5">
+          <div className="relative flex items-center w-full max-w-md">
             <input
               type="text"
               placeholder="Search here..."
-              class="w-full bg-gray-200 pl-8 pr-10 py-2 text-primary placeholder-pribg-primary border border-pribg-primary rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full bg-gray-200 pl-8 pr-10 py-2 text-primary placeholder-pribg-primary border border-pribg-primary rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
             />
             <div className="absolute left-2 top-1/2 transform -translate-y-1/2">
               {/* <!-- Search Icon --> */}
-              <FiSearch className="w-5 h-5 text-primary"/>
+              <FiSearch className="w-5 h-5 text-primary" />
             </div>
-            <div class="absolute right-2 top-1/2 transform -translate-y-1/2">
+            <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
               {/* <!-- Calendar Icon --> */}
-              <FaCalendarDays className="w-5 h-5 text-primary"/>
+              <FaCalendarDays className="w-5 h-5 text-primary" />
             </div>
           </div>
         </div>
 
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Video play */}
+          {/* left side Video */}
           <div className="lg:col-span-2">
             <iframe width="100%" height="400" src={openItemDetails.video_url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+
+            {/* **** video for icon and title or content **** */}
+            <div className="px-2">
+              <div className="flex items-center  gap-20 py-4">
+                <div className="flex justify-between gap-20">
+                  <p><span className="font-bold text-primaryGray">Topic: </span>{openItemDetails.tipic}</p>
+                  <p><span className="font-bold text-primaryGray">Date: </span>{openItemDetails.date}</p>
+                </div>
+                <div className="flex justify-between gap-20">
+                  <p className="flex items-center "><Image src="https://i.ibb.co.com/khtDFYX/image-5.png" alt="pdf" width={20} height={20} /> PDF File</p>
+                  <p className="flex items-center "><Image src="https://i.ibb.co.com/1QcczJk/image-6.png" alt="doc" width={20} height={20} />DOC File</p>
+                </div>
+              </div>
+              <h2 className="text-[24px] text-primaryGray font-semibold pb-4">{openItemDetails.title}</h2>
+              <p className="text-[14px] text-primaryGray">{openItemDetails.content}</p>
+            </div>
+
+            {/* comment section */}
+            <div className="px-6 mt-10">
+              {/* Main Comment Input */}
+              <div className=" bg-white  p-4 mb-4">
+                <div className="flex items-center mb-2">
+                  <Image src="https://i.ibb.co.com/pzB9Ysr/almas.png" alt="user-avatar" width={100} height={100} className="w-10 h-10 rounded-full mr-3"/>
+                  <p className="font-semibold text-gray-800">Harun353@gmail.com</p>
+                </div>
+                <textarea
+                cols={5}
+                rows={5}
+                  placeholder="Add a comment"
+                  className="w-full p-2 border outline-none"
+                ></textarea>
+                <div className="text-right mt-2">
+                  <button className="border border-primary font-semibold text-primary px-4 py-1  ">
+                    Add a comment
+                  </button>
+                </div>
+              </div>
+
+              {/* Replies one */}
+                <div className=" bg-white  p-4 mb-4">
+                  <div className="flex mb-4">
+                  <Image src="https://i.pravatar.cc/40" alt="user-avatar" width={100} height={100} className="w-10 h-10 rounded-full mr-3"/>
+                    <div>
+                      <p className="font-semibold text-gray-800">Joan543@gmail.com</p>
+                      <p className="text-gray-600 text-sm mt-1">
+                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus vitae purus non mi facilisis convallis id eget nulla. Fusce vulputate elit id odio ultricies, in cursus dui aliquet.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <button className="text-primary text-sm font-medium border border-primary px-4">
+                      Reply
+                    </button>
+                  </div>
+                </div>
+              {/* Replies two */}
+                <div className=" bg-white  p-4 mb-4">
+                  <div className="flex mb-4">
+                  <Image src="https://images.unsplash.com/photo-1499470932971-a90681ce8530?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="user-avatar" width={100} height={100} className="w-10 h-10 rounded-full mr-3"/>
+                    <div>
+                      <p className="font-semibold text-gray-800">mstkhushiakter333@gmail.com</p>
+                      <p className="text-gray-600 text-sm mt-1">
+                      Suspendisse potenti. Donec dictum malesuada nisi, a dapibus tortor condimentum nec. Mauris euismod volutpat risus, in luctus orci scelerisque eget. Vivamus id fermentum libero. Integer cursus finibus diam eget tristique.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                  <button className="text-primary text-sm font-medium border border-primary px-4">
+                      Reply
+                    </button>
+                  </div>
+                </div>
+            </div>
           </div>
 
 
-          {/* Course content */}
-          <div className=" bg-sky-300 rounded-md h-[400px] overflow-y-auto">
-            <div className="container mx-auto mt-10 max-w-xl">
+          {/* right side Course content */}
+          <div className="lg:min-h-screen rounded-md overflow-y-auto">
+            <div className="">
               {accordionData.map((item) => (
                 <div
                   key={item.id}
@@ -271,11 +371,10 @@ const Academy = () => {
                   {openItem === item.id && (
 
                     item?.contentArray?.map((nestedItem, idx) => {
-                      console.log(nestedItem, 'line 168')
                       return (
-                        <div onClick={() => handleClickAllDetails(item.id, nestedItem.id)} key={nestedItem.id} className="cursor-pointer hover:bg-slate-600 p-4 bg-white text-gray-600 border-b">
+                        <div key={nestedItem.id} onClick={() => handleClickAllDetails(item.id, nestedItem.id)} className="cursor-pointer hover:bg-slate-600 p-4 bg-white text-gray-600 border-b">
                           <p className="flex  gap-2"><FaCircleCheck className="text-2xl" />{nestedItem.title}</p>
-                          <p className="flex items-center gap-2 ml-7"><RiVideoFill className="text-xl" />{nestedItem.content}</p>
+                          <p className="flex items-center gap-2 ml-7"><RiVideoFill className="text-xl" />{'time'}</p>
                         </div>
                       )
                     })
