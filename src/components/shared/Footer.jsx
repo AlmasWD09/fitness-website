@@ -1,6 +1,7 @@
+"use client"
 import { MdCall, MdEmail } from "react-icons/md";
 import { CiFacebook } from "react-icons/ci";
-import { FaInstagram} from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import { BiLogoTelegram } from "react-icons/bi";
 import Image from "next/image";
@@ -59,7 +60,7 @@ const Footer = () => {
                             className="w-full  px-4 py-2 rounded-full text-black outline-none"
                         />
                         <button className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-300 p-2 rounded-full hover:bg-gray-400 transition duration-300">
-                            <BiLogoTelegram className="text-primary"/>
+                            <BiLogoTelegram className="text-primary" />
                         </button>
                     </div>
                 </div>

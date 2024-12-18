@@ -16,7 +16,7 @@ const Banner = () => {
           <div>
             <h1 className="text-[24px] lg:text-[64px] font-noto mb-5">Universal Workouts<br />
               Anytime, Anywhere.</h1>
-            <button className="bg-primary/90 hover:bg-primary mx-auto text-center rounded text-white py-2 px-3 lg:py-3 lg:px-8 flex items-center gap-3">Join our class <GoArrowUpRight /></button>
+            <button className="bg-primary/90 hover:bg-primary mx-auto text-center text-white py-2 px-3 lg:py-3 lg:px-8 flex items-center gap-3">Join our class <GoArrowUpRight /></button>
           </div>
         </div>
       </div>

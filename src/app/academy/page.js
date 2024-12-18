@@ -8,7 +8,7 @@ import Link from "next/link";
 import { FaHome } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { FaCalendarDays } from "react-icons/fa6";
-
+import Comment from "../../components/Comment";
 
 
 // Accordion data
@@ -133,32 +133,14 @@ const accordionData = [
   }
 ];
 
-
-
-
-
-
-const reviewsData = [
-  "sssssssssssssssssssfffffffffffff",
-  "sssssssssssssssssssfffffffffffff",
-]
 const Academy = () => {
   const [showAll, setShowAll] = useState(false);
-  const [openItem, setOpenItem] = useState(null); // Tracks which accordion item is open
+  const [openItem, setOpenItem] = useState(null); 
   const [openItemDetails, setOpenItemDetails] = useState(accordionData[0].contentArray[0])
-  const [reviews, setReviews] = useState(() => {
-    // const storedReviews = JSON.parse(localStorage.getItem("reviews")) || [
-    //   "sssssssssssssssssssfffffffffffff",
-    //   "sssssssssssssssssssfffffffffffff",
-    // ];
-    // return storedReviews;
-  });
-
-  console.log(openItemDetails, 'line 231----->')
 
   // Handle click to toggle accordion items
   const toggleItem = (id) => {
-    setOpenItem(openItem === id ? null : id); // Toggle open/close
+    setOpenItem(openItem === id ? null : id); 
   };
 
   const fitnessClasses = [
@@ -190,8 +172,6 @@ const Academy = () => {
 
   ];
 
-
-
   const displayedClasses = showAll ? fitnessClasses : fitnessClasses.slice(0, 3);
   const handleViewAllClick = () => {
     setShowAll(true);
@@ -209,21 +189,6 @@ const Academy = () => {
     setOpenItemDetails(findNestedData)
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    // Get the new review from the form input
-    const newReview = event.target.comment.value;
-
-    // Update the reviews state and save it to localStorage
-    // const updatedReviews = [...reviews, newReview];
-    // setReviews(updatedReviews);
-    // localStorage.setItem("reviews", JSON.stringify(updatedReviews));
-
-    // Clear the form input
-    event.target.reset();
-  };
-
   useEffect(() => {
     const storedReviews = JSON.parse(localStorage.getItem("reviews"));
     if (storedReviews) {
@@ -233,8 +198,7 @@ const Academy = () => {
 
   return (
     <>
-      <section className="container px-4 mx-auto pt-28 border-2 border-red-500">
-
+      <section className="container px-4 mx-auto pt-20 md:pt-28 border-2 border-red-500">
         {/* navigation bar here... */}
         <div>
           <div className="flex items-center">
@@ -272,7 +236,7 @@ const Academy = () => {
 
             {/* **** video for icon and title or content **** */}
             <div className="px-2">
-              <div className="flex items-center  gap-20 py-4">
+              <div className="flex flex-col lg:flex-row items-center lg:gap-20 py-4">
                 <div className="flex justify-between gap-20">
                   <p><span className="font-bold text-primaryGray">Topic: </span>{openItemDetails.tipic}</p>
                   <p><span className="font-bold text-primaryGray">Date: </span>{openItemDetails.date}</p>
@@ -286,62 +250,8 @@ const Academy = () => {
               <p className="text-[14px] text-primaryGray">{openItemDetails.content}</p>
             </div>
 
-            {/* comment section */}
-            <div className="px-6 mt-10">
-              {/* Main Comment Input */}
-              <div className=" bg-white  p-4 mb-4">
-                <div className="flex items-center mb-2">
-                  <Image src="https://i.ibb.co.com/pzB9Ysr/almas.png" alt="user-avatar" width={100} height={100} className="w-10 h-10 rounded-full mr-3"/>
-                  <p className="font-semibold text-gray-800">Harun353@gmail.com</p>
-                </div>
-                <textarea
-                cols={5}
-                rows={5}
-                  placeholder="Add a comment"
-                  className="w-full p-2 border outline-none"
-                ></textarea>
-                <div className="text-right mt-2">
-                  <button className="border border-primary font-semibold text-primary px-4 py-1  ">
-                    Add a comment
-                  </button>
-                </div>
-              </div>
-
-              {/* Replies one */}
-                <div className=" bg-white  p-4 mb-4">
-                  <div className="flex mb-4">
-                  <Image src="https://i.pravatar.cc/40" alt="user-avatar" width={100} height={100} className="w-10 h-10 rounded-full mr-3"/>
-                    <div>
-                      <p className="font-semibold text-gray-800">Joan543@gmail.com</p>
-                      <p className="text-gray-600 text-sm mt-1">
-                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus vitae purus non mi facilisis convallis id eget nulla. Fusce vulputate elit id odio ultricies, in cursus dui aliquet.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <button className="text-primary text-sm font-medium border border-primary px-4">
-                      Reply
-                    </button>
-                  </div>
-                </div>
-              {/* Replies two */}
-                <div className=" bg-white  p-4 mb-4">
-                  <div className="flex mb-4">
-                  <Image src="https://images.unsplash.com/photo-1499470932971-a90681ce8530?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="user-avatar" width={100} height={100} className="w-10 h-10 rounded-full mr-3"/>
-                    <div>
-                      <p className="font-semibold text-gray-800">mstkhushiakter333@gmail.com</p>
-                      <p className="text-gray-600 text-sm mt-1">
-                      Suspendisse potenti. Donec dictum malesuada nisi, a dapibus tortor condimentum nec. Mauris euismod volutpat risus, in luctus orci scelerisque eget. Vivamus id fermentum libero. Integer cursus finibus diam eget tristique.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                  <button className="text-primary text-sm font-medium border border-primary px-4">
-                      Reply
-                    </button>
-                  </div>
-                </div>
-            </div>
+            {/* comment component here.. */}
+            <Comment />
           </div>
 
 
@@ -387,38 +297,16 @@ const Academy = () => {
           </div>
         </div>
 
-        {/* review or comment*/}
-
-        {/* <div>
-          <form onSubmit={(event) => handleSubmit(event)}>
-            <input className="border" type="text" name="comment"></input>
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-        <div>
-          {
-            reviews?.map((review, idx) => {
-              return (
-                <div key={idx}>
-
-                  <h1>{review}</h1>
-                </div>
-              )
-            })
-          }
-        </div> */}
-
-
 
         {/* More class */}
-        {/* <div>
+        <div className="py-8 md:py-16">
           <div className="flex justify-between">
-            <h2 className="text-[32px] font-medium font-noto text-gray-400">
+            <h2 className="md:text-[32px] font-medium font-noto text-gray-400">
               More Class Like This
             </h2>
-            {!showAll && ( // Only show "View All" if not all items are displayed
+            {!showAll && ( 
               <button
-                className="text-primary text-[32px] font-medium font-noto underline"
+                className="text-primary md:text-[32px] font-medium font-noto underline"
                 onClick={handleViewAllClick}
               >
                 View All
@@ -427,16 +315,16 @@ const Academy = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
             {displayedClasses.map((fitness, idx) => (
-              <div key={idx}>
+              <div key={idx} className="shadow-md pb-2">
                 <Image className="h-60 object-cover" src={fitness.image} alt={fitness.title} height={500} width={500} />
                 <div className="flex justify-between">
                   <h3>{fitness.title}</h3>
-                  <button className="bg-black text-white px-4 py-2">Details</button>
+                  <button className="bg-[#2F2F2F] text-white/80 px-4 md:px-7 py-1">Details</button>
                 </div>
               </div>
             ))}
           </div>
-        </div> */}
+        </div>
       </section>
     </>
   );

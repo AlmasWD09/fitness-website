@@ -1,4 +1,4 @@
-
+"use client"
 
 const FreeClass = () => {
   return (
@@ -17,7 +17,7 @@ const FreeClass = () => {
         {/* right side video */}
         <div className="w-full md:w-[50%] ">
           <div className="rounded-md">
-            <iframe className="rounded-md " width="100%"  height="400" src="https://www.youtube.com/embed/FBs0l6cxl1o?si=StyUg6AlcQwJZtKq" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+            <iframe className="rounded-md " width="100%" height="400" src="https://www.youtube.com/embed/FBs0l6cxl1o?si=StyUg6AlcQwJZtKq" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
           </div>
         </div>
       </div>
