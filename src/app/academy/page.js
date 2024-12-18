@@ -4,6 +4,12 @@ import { IoIosArrowDown } from "react-icons/io";
 import { RiVideoFill } from "react-icons/ri";
 import { FaCircleCheck } from "react-icons/fa6";
 import Image from "next/image";
+import Link from "next/link";
+import { FaHome } from "react-icons/fa";
+import { FiSearch } from "react-icons/fi";
+import { FaCalendarDays } from "react-icons/fa6";
+
+
 
 // Accordion data
 const accordionData = [
@@ -200,8 +206,39 @@ const Academy = () => {
 
   return (
     <>
-      <section className="container px-4 mx-auto mt-10 border-2 border-red-500">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="container px-4 mx-auto pt-28 border-2 border-red-500">
+
+        {/* navigation bar here... */}
+        <div>
+          <div className="flex items-center">
+            <span className=""><Link href="/"><FaHome /></Link></span>
+            <span className="mx-2">/</span>
+            <h3 className="text-gray-500 font-noto">Demand Library</h3>
+          </div>
+          <h1 className="text-2xl font-semibold  text-gray-500 font-noto">Academy to Studio</h1>
+        </div>
+
+        {/* search field */}
+        <div class="flex justify-end items-center bg-primary p-2 my-5">
+          <div class="relative flex items-center w-full max-w-md">
+            <input
+              type="text"
+              placeholder="Search here..."
+              class="w-full bg-gray-200 pl-8 pr-10 py-2 text-primary placeholder-pribg-primary border border-pribg-primary rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+            <div className="absolute left-2 top-1/2 transform -translate-y-1/2">
+              {/* <!-- Search Icon --> */}
+              <FiSearch className="w-5 h-5 text-primary"/>
+            </div>
+            <div class="absolute right-2 top-1/2 transform -translate-y-1/2">
+              {/* <!-- Calendar Icon --> */}
+              <FaCalendarDays className="w-5 h-5 text-primary"/>
+            </div>
+          </div>
+        </div>
+
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Video play */}
           <div className="lg:col-span-2">
             <iframe width="100%" height="400" src={openItemDetails.video_url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
@@ -252,7 +289,7 @@ const Academy = () => {
         </div>
 
         {/* review or comment*/}
-        
+
         {/* <div>
           <form onSubmit={(event) => handleSubmit(event)}>
             <input className="border" type="text" name="comment"></input>
@@ -275,7 +312,7 @@ const Academy = () => {
 
 
         {/* More class */}
-        <div>
+        {/* <div>
           <div className="flex justify-between">
             <h2 className="text-[32px] font-medium font-noto text-gray-400">
               More Class Like This
@@ -300,7 +337,7 @@ const Academy = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </section>
     </>
   );

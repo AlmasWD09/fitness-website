@@ -53,7 +53,7 @@ const Testimonial = () => {
                             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more.
                         </p>
                         <div className="flex flex-col items-center justify-center">
-                            <Image className="object-cover rounded-full w-14 h-14" src="https://images.unsplash.com/photo-1499470932971-a90681ce8530?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="review" width={100} height={100} />
+                            <Image className="object-cover rounded-full w-14 h-14" src="https://images.unsplash.com/photo-1499470932971-a90681ce8530?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="review1" width={100} height={100} />
 
                             <div className="mt-4 text-center">
                                 <h1 className="font-semibold text-primaryGray">Mia Brown</h1>
@@ -71,7 +71,7 @@ const Testimonial = () => {
                             It is a well-known truth that readers tend to be sidetracked by the content's readability when examining a layout. The advantage of Lorem Ipsum is that it appears more uniform.
                         </p>
                         <div className="flex flex-col items-center justify-center">
-                            <Image className="object-cover rounded-full w-14 h-14" src="https://i.ibb.co.com/pzB9Ysr/almas.png" alt="review" width={100} height={100} />
+                            <Image className="object-cover rounded-full w-14 h-14" src="https://i.ibb.co.com/pzB9Ysr/almas.png" alt="review2" width={100} height={100} />
 
                             <div className="mt-4 text-center">
                                 <h1 className="font-semibold text-primaryGray">Joan Doa</h1>
@@ -90,7 +90,7 @@ const Testimonial = () => {
                         </p>
 
                         <div className="flex flex-col items-center justify-center">
-                            <Image className="object-cover rounded-full w-14 h-14" src="https://images.unsplash.com/photo-1499470932971-a90681ce8530?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="review" width={100} height={100} />
+                            <Image className="object-cover rounded-full w-14 h-14" src="https://images.unsplash.com/photo-1499470932971-a90681ce8530?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="review3" width={100} height={100} />
 
                             <div className="mt-4 text-center">
                                 <h1 className="font-semibold text-primaryGray">Mitchel</h1>

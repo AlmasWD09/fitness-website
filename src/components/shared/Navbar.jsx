@@ -1,34 +1,19 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FiSearch } from "react-icons/fi";
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import { useCart } from "../../contexts/CartContext";
+import { useRouter } from "next/navigation";
 
 
 const Navbar = () => {
+  const { cartItems } = useCart();
   const [getMenu, setMenu] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
-
-
-  useEffect(() => {
-    const updateCartItems = () => {
-      const storedCartItems = JSON.parse(localStorage.getItem("cart")) || [];
-      setCartItems(storedCartItems);
-    };
-
-    // custom dispatch here.....
-    updateCartItems();
-    window.addEventListener("cartUpdate", updateCartItems);
-
-    // Clean up event listener
-    return () => {
-      window.removeEventListener("cartUpdate", updateCartItems);
-    };
-  }, []);
-
+  const router = useRouter()
 
   const navLinks = [
     {
@@ -56,26 +41,35 @@ const Navbar = () => {
       title: "Blogs",
     },
   ];
+// navigate for home page
+const handleClick = () =>{
+  router.push('/')
+}
+// navigate for cart page
+const handleCart = () =>{
+  router.push('/cart')
+}
+
 
   return (
     <div className="bg-gray-100 font-noto fixed w-full shadow-md z-50 py-1">
       <div className=" flex items-center justify-between container mx-auto px-4 ">
         <div className="lg:hidden" onClick={() => setMenu(!getMenu)}>
           {getMenu ? (
-            <IoCloseSharp className="text-xl bg-primary/30 rounded-full w-10 h-10 p-2"/>
+            <IoCloseSharp className="text-xl bg-primary/30 rounded-full w-10 h-10 p-2" />
           ) : (
-            <GiHamburgerMenu className="text-xl bg-primary/30 rounded-full w-10 h-10 p-2"/>
+            <GiHamburgerMenu className="text-xl bg-primary/30 rounded-full w-10 h-10 p-2" />
           )}
         </div>
 
         {/* left section  */}
         <div className=" hidden lg:block">
-          <Image src="https://i.ibb.co.com/6W21TPV/image-4.png" alt="logo" height={1000} width={200} />
+          <Image onClick={()=>handleClick()} className="cursor-pointer" src="https://i.ibb.co.com/6W21TPV/image-4.png" alt="logo" height={1000} width={200} />
         </div>
         <div className="flex items-center ml-40 gap-8 lg:hidden">
-            <HiOutlineShoppingCart className="text-2xl"/>
-            <FiSearch className="text-2xl"/>
-            <Image className="w-14 h-1w-14" src="https://i.ibb.co.com/MRxhScd/Ellipse-223.png" alt="avater" width={100} height={100}/>
+          <HiOutlineShoppingCart className="text-2xl" />
+          <FiSearch className="text-2xl" />
+          <Image className="w-14 h-1w-14" src="https://i.ibb.co.com/MRxhScd/Ellipse-223.png" alt="avater" width={100} height={100} />
         </div>
 
         <div className="hidden lg:flex ">
@@ -97,16 +91,16 @@ const Navbar = () => {
           {/* button start  */}
           <div className="group relative hidden lg:flex items-center gap-8">
             <div className="flex items-center gap-8">
-            <div>
-            <HiOutlineShoppingCart className="relative text-2xl"/>
-            <p className="absolute -top-1 left-2 w-6 h-6 bg-primary  rounded-full flex justify-center items-center text-xs"> {cartItems.length}</p>
+              <div onClick={()=>handleCart()} className="cursor-pointer">
+                <HiOutlineShoppingCart className="relative text-2xl " />
+                <p className="absolute -top-1 left-2 w-6 h-6 bg-primary  rounded-full flex justify-center items-center text-xs"> {cartItems.length}</p>
+              </div>
+              <FiSearch className="text-2xl" />
             </div>
-            <FiSearch className="text-2xl"/>
+            <div className="flex items-center gap-4">
+              <button className="border border-primary px-6 py-2">Login</button>
+              <button className="bg-primary text-white px-6 py-2">Sign Up</button>
             </div>
-           <div className="flex items-center gap-4">
-            <button className="border border-primary px-6 py-2">Login</button>
-            <button className="bg-primary text-white px-6 py-2">Sign Up</button>
-           </div>
           </div>
         </div>
       </div>
@@ -114,7 +108,28 @@ const Navbar = () => {
 
 
       {/* mobile responsive section  */}
-    
+      <div
+        className={`h-screen overflow-y-auto w-full lg:hidden  absolute z-[9999]   transition-all bg-white ease-in-out duration-300 transform ${getMenu ? "translate-x-0" : "-translate-x-full"
+          }`}
+      >
+        <div className="p-10 ">
+          <ul className=" flex flex-col gap-6">
+            {navLinks.map((item) => (
+              <Link
+              key={item.path}
+                onClick={() => setMenu(false)}
+                href={item.path}
+              >
+                <li className="hover:text-primary">{item.title}</li>
+              </Link>
+            ))}
+          </ul>
+          <div className="flex flex-col gap-4 mt-4">
+            <button className="border border-primary px-6 py-2">Login</button>
+            <button className="bg-primary text-white px-6 py-2">Sign Up</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

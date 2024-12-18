@@ -67,8 +67,8 @@ const Membership = () => {
                   </div>
                 </div>
                 <ul className=" text-gray-600 mb-4 space-y-3">
-                  {item.features.map((feature, index) => (
-                    <li key={index} className="flex max-w-[253px] mx-auto ">
+                  {item.features.map((feature, idx) => (
+                    <li key={idx} className="flex max-w-[253px] mx-auto ">
                       <span className="mr-2 mt-1"><FaCircleCheck /></span>
                       {feature}
                     </li>

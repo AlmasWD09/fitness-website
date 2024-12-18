@@ -2,43 +2,12 @@
 import Link from "next/link";
 import { FaHome } from "react-icons/fa";
 import CartItem from "../../components/CartItem";
+import { useCart } from "../../contexts/CartContext";
 
 
 const Cart = () => {
-    const cartItems = [
-        {
-          id: 1,
-          image: "https://i.ibb.co.com/DGPQw3m/Rectangle-5089-1.png",
-          name: "The Dumbbell",
-          price: "150 CND",
-          date: "05/12/2024",
-          quantity: "02",
-        },
-        {
-          id: 2,
-          image: "https://i.ibb.co.com/r6RM8Cv/Rectangle-5089-2.png",
-          name: "The Dumbbell",
-          price: "150 CND",
-          date: "05/12/2024",
-          quantity: "08",
-        },
-        {
-          id: 3,
-          image: "https://i.ibb.co.com/fGq8HdP/Rectangle-5089-3.png",
-          name: "The Dumbbell",
-          price: "150 CND",
-          date: "05/12/2024",
-          quantity: "05",
-        },
-        {
-          id: 4,
-          image: "https://i.ibb.co.com/y85jDFr/Rectangle-5089.png",
-          name: "The Dumbbell",
-          price: "150 CND",
-          date: "05/12/2024",
-          quantity: "06",
-        },
-      ];
+    const {cartItems} = useCart()
+ 
   return (
     <>
      <div className="container mx-auto px-4 pt-32 pb-20">
@@ -54,12 +23,12 @@ const Cart = () => {
      {
       cartItems.length === 0 ? <div className="text-white text-center bg-primary max-w-[300px] mx-auto py-8 space-y-4">
         <h1 className="text-3xl text-center font-bold  uppercase">Data not found</h1>
-        <p className="text-2xl">Please Data Add</p>
+        <p className="text-2xl">Please Product Add</p>
       </div>
       :
       <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
-      {cartItems.map((item) => (
-        <CartItem key={item.id} item={item} />
+      {cartItems.map((item,idx) => (
+        <CartItem key={idx} item={item} />
       ))}
     </div>
      }
