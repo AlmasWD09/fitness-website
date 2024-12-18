@@ -23,7 +23,8 @@ const accordionData = [
         content: "This section introduces you to the foundational principles of Hatha yoga, including breathing techniques, basic poses, and their benefits. You'll learn how to align your body and mind through guided exercises designed for beginners.",
         video_url: "https://www.youtube.com/embed/XWniFyd9r4I?si=o2ALFJQg6-GvrX89",
         tipic: "Yoga",
-        date: "03/12/2024"
+        date: "03/12/2024",
+        video_time:"04 3h 40m",
       },
       {
         id: 102,
@@ -31,7 +32,8 @@ const accordionData = [
         content: "Explore the step-by-step progression of Ashtanga yoga with detailed instructions for each posture. This section focuses on developing strength, flexibility, and endurance, ensuring a comprehensive understanding of the practice.",
         video_url: "https://www.youtube.com/embed/kf6yyxMck8Y?si=IBOLucSUZGIybhXB",
         tipic: "Ashtanga Steps",
-        date: "04/12/2024"
+        date: "04/12/2024",
+        video_time:"02 1h 40m",
       },
       {
         id: 103,
@@ -39,7 +41,8 @@ const accordionData = [
         content: "Watch a practical demonstration of key yoga techniques to enhance your practice. This video offers visual guidance, making it easier to follow along and perfect your form.",
         video_url: "/video01.mp4",
         tipic: "Yoga Techniques Demo",
-        date: "05/12/2024"
+        date: "05/12/2024",
+        video_time:"04 1h 55m",
       }
     ]
   },
@@ -53,7 +56,8 @@ const accordionData = [
         content: "Dive deeper into Hatha yoga with advanced postures and their benefits for flexibility and strength. This section includes variations of classic poses to challenge your abilities and enhance your practice.",
         video_url: "link 01",
         tipic: "Advanced Hatha",
-        date: "06/12/2024"
+        date: "06/12/2024",
+        video_time:"04 1h 40m",
       },
       {
         id: 202,
@@ -61,7 +65,8 @@ const accordionData = [
         content: "Understand the flow of Ashtanga yoga and how to seamlessly transition between poses. This part emphasizes synchronization of breath with movement, promoting a meditative and energizing experience.",
         video_url: "link 02",
         tipic: "Ashtanga Flow",
-        date: "07/12/2024"
+        date: "07/12/2024",
+        video_time:"04 3h 40m",
       }
     ]
   },
@@ -75,7 +80,8 @@ const accordionData = [
         content: "Learn how to combine meditation techniques with Hatha yoga for mental clarity and relaxation. This section guides you through mindfulness exercises that complement yoga postures to achieve a holistic sense of well-being.",
         video_url: "link 01",
         tipic: "Meditation Techniques",
-        date: "08/12/2024"
+        date: "08/12/2024",
+        video_time:"04 3h 40m",
       },
       {
         id: 302,
@@ -83,7 +89,8 @@ const accordionData = [
         content: "Discover the importance of breath control in Ashtanga yoga and practice guided exercises. This part focuses on pranayama techniques that enhance energy flow and improve concentration.",
         video_url: "link 02",
         tipic: "Breath Control",
-        date: "09/12/2024"
+        date: "09/12/2024",
+        video_time:"08 2h 30m",
       }
     ]
   },
@@ -97,7 +104,8 @@ const accordionData = [
         content: "Focus on strength-building postures in Hatha yoga and their impact on overall fitness. This section includes a detailed breakdown of poses that target core, upper body, and lower body strength.",
         video_url: "link 01",
         tipic: "Strength Building",
-        date: "10/12/2024"
+        date: "10/12/2024",
+        video_time:"04 3h 40m",
       },
       {
         id: 402,
@@ -105,7 +113,8 @@ const accordionData = [
         content: "Practice dynamic sequences in Ashtanga yoga to improve coordination and balance. This section offers a structured approach to mastering challenging transitions with ease and confidence.",
         video_url: "link 02",
         tipic: "Dynamic Sequences",
-        date: "11/12/2024"
+        date: "11/12/2024",
+        video_time:"04 3h 40m",
       }
     ]
   },
@@ -119,7 +128,8 @@ const accordionData = [
         content: "Explore restorative poses in Hatha yoga that promote deep relaxation and healing. This section emphasizes gentle stretches and supportive postures to rejuvenate your body and mind.",
         video_url: "link 01",
         tipic: "Restorative Yoga",
-        date: "12/12/2024"
+        date: "12/12/2024",
+        video_time:"04 3h 30m",
       },
       {
         id: 502,
@@ -127,10 +137,60 @@ const accordionData = [
         content: "A beginner-friendly guide to starting Ashtanga yoga with simple and effective poses. This section provides clear instructions and tips for building a consistent and enjoyable practice.",
         video_url: "link 02",
         tipic: "Beginner Ashtanga",
-        date: "13/12/2024"
+        date: "13/12/2024",
+        video_time:"04 3h 40m",
       }
     ]
-  }
+  },
+
+  {
+    id: 6,
+    title: "Series No 06 : Hatha yoga, Ashtanga...",
+    contentArray: [
+      {
+        id: 601,
+        title: "Advanced Hatha yoga postures",
+        content: "Dive deeper into Hatha yoga with advanced postures and their benefits for flexibility and strength. This section includes variations of classic poses to challenge your abilities and enhance your practice.",
+        video_url: "link 01",
+        tipic: "Advanced Hatha",
+        date: "05/12/2024",
+        video_time:"04 3h 40m",
+      },
+      {
+        id: 602,
+        title: "Ashtanga flow explained",
+        content: "Understand the flow of Ashtanga yoga and how to seamlessly transition between poses. This part emphasizes synchronization of breath with movement, promoting a meditative and energizing experience.",
+        video_url: "link 02",
+        tipic: "Ashtanga Flow",
+        date: "03/12/2024",
+        video_time:"09 1h 40m",
+      }
+    ]
+  },
+  {
+    id: 7,
+    title: "Series No 07 : Hatha yoga, Ashtanga...",
+    contentArray: [
+      {
+        id: 701,
+        title: "Meditation with Hatha yoga",
+        content: "Learn how to combine meditation techniques with Hatha yoga for mental clarity and relaxation. This section guides you through mindfulness exercises that complement yoga postures to achieve a holistic sense of well-being.",
+        video_url: "link 01",
+        tipic: "Meditation Techniques",
+        date: "02/12/2024",
+        video_time:"04 3h 40m",
+      },
+      {
+        id: 702,
+        title: "Breath control in Ashtanga",
+        content: "Discover the importance of breath control in Ashtanga yoga and practice guided exercises. This part focuses on pranayama techniques that enhance energy flow and improve concentration.",
+        video_url: "link 02",
+        tipic: "Breath Control",
+        date: "06/12/2024",
+        video_time:"04 2h 20m",
+      }
+    ]
+  },
 ];
 
 const Academy = () => {
@@ -198,7 +258,7 @@ const Academy = () => {
 
   return (
     <>
-      <section className="container px-4 mx-auto pt-20 md:pt-28 border-2 border-red-500">
+      <section className="container px-4 mx-auto pt-20 md:pt-28 ">
         {/* navigation bar here... */}
         <div>
           <div className="flex items-center">
@@ -282,9 +342,9 @@ const Academy = () => {
 
                     item?.contentArray?.map((nestedItem, idx) => {
                       return (
-                        <div key={nestedItem.id} onClick={() => handleClickAllDetails(item.id, nestedItem.id)} className="cursor-pointer hover:bg-slate-600 p-4 bg-white text-gray-600 border-b">
+                        <div key={idx} onClick={() => handleClickAllDetails(item.id, nestedItem.id)} className="cursor-pointer hover:bg-primaryGray/20 p-4 bg-white text-gray-600 border-b">
                           <p className="flex  gap-2"><FaCircleCheck className="text-2xl" />{nestedItem.title}</p>
-                          <p className="flex items-center gap-2 ml-7"><RiVideoFill className="text-xl" />{'time'}</p>
+                          <p className="flex items-center gap-2 ml-7">Total Video: {nestedItem.video_time}</p>
                         </div>
                       )
                     })
