@@ -23,3 +23,23 @@ body {
   font-family: Arial, Helvetica, sans-serif; */
 }
 
+/* ============ custom scroll bar add ==================== */
+/* CSS for thin scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #b47000 lightgray; /* Thumb and Track colors */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Scrollbar width */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #b47000; /* Thumb color */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: lightgray; /* Track color */
+}
+

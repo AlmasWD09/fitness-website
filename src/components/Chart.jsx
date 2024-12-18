@@ -2,7 +2,7 @@
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 
 const data = [
-  { name: 'Complete', value: 78, color: '#A86300' }, 
+  { name: 'Complete', value: 78, color: '#b47000' }, 
   { name: 'Uncomplete', value: 22, color: '#F3F3F3' }, 
 ];
 
@@ -12,7 +12,7 @@ const renderLegend = (props) => {
   return (
     <ul style={{ listStyle: 'none', padding: 0, display: 'flex', gap: '20px' }}>
       {payload.map((entry, index) => {
-        const textColor = entry.value === 'Complete' ? '#A86300' : '#888888'; 
+        const textColor = entry.value === 'Complete' ? '#b47000' : '#888888'; 
         return (
           <li key={`item-${index}`} style={{ display: 'flex', alignItems: 'center' }}>
             <span style={{ color: entry.color, marginRight: '8px' }}>●</span> 

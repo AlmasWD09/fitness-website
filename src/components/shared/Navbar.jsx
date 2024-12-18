@@ -41,14 +41,14 @@ const Navbar = () => {
       title: "Blogs",
     },
   ];
-// navigate for home page
-const handleClick = () =>{
-  router.push('/')
-}
-// navigate for cart page
-const handleCart = () =>{
-  router.push('/cart')
-}
+  // navigate for home page
+  const handleClick = () => {
+    router.push('/')
+  }
+  // navigate for cart page
+  const handleCart = () => {
+    router.push('/cart')
+  }
 
 
   return (
@@ -64,10 +64,13 @@ const handleCart = () =>{
 
         {/* left section  */}
         <div className=" hidden lg:block">
-          <Image onClick={()=>handleClick()} className="cursor-pointer" src="https://i.ibb.co.com/6W21TPV/image-4.png" alt="logo" height={1000} width={200} />
+          <Image onClick={() => handleClick()} className="cursor-pointer" src="https://i.ibb.co.com/6W21TPV/image-4.png" alt="logo" height={1000} width={200} />
         </div>
         <div className="flex items-center ml-40 gap-8 lg:hidden">
-          <HiOutlineShoppingCart className="text-2xl" />
+          <div onClick={() => handleCart()} className="cursor-pointer">
+            <HiOutlineShoppingCart className="relative text-2xl " />
+            <p className="absolute top-3 ml-4 w-4 h-4 bg-primary text-white rounded-full flex justify-center items-center text-xs"> {cartItems.length}</p>
+          </div>
           <FiSearch className="text-2xl" />
           <Image className="w-14 h-1w-14" src="https://i.ibb.co.com/MRxhScd/Ellipse-223.png" alt="avater" width={100} height={100} />
         </div>
@@ -91,7 +94,7 @@ const handleCart = () =>{
           {/* button start  */}
           <div className="group relative hidden lg:flex items-center gap-8">
             <div className="flex items-center gap-8">
-              <div onClick={()=>handleCart()} className="cursor-pointer">
+              <div onClick={() => handleCart()} className="cursor-pointer">
                 <HiOutlineShoppingCart className="relative text-2xl " />
                 <p className="absolute -top-1 left-2 w-6 h-6 bg-primary text-white rounded-full flex justify-center items-center text-xs"> {cartItems.length}</p>
               </div>
@@ -116,7 +119,7 @@ const handleCart = () =>{
           <ul className=" flex flex-col gap-6">
             {navLinks.map((item) => (
               <Link
-              key={item.path}
+                key={item.path}
                 onClick={() => setMenu(false)}
                 href={item.path}
               >

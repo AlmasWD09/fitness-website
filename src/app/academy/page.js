@@ -63,7 +63,7 @@ const accordionData = [
         id: 202,
         title: "Ashtanga flow explained",
         content: "Understand the flow of Ashtanga yoga and how to seamlessly transition between poses. This part emphasizes synchronization of breath with movement, promoting a meditative and energizing experience.",
-        video_url: "link 02",
+        video_url: "https://www.youtube.com/embed/gkTxBPuvrjU?si=XT99PwEB5ebcnMj0",
         tipic: "Ashtanga Flow",
         date: "07/12/2024",
         video_time: "04 3h 40m",
@@ -87,7 +87,7 @@ const accordionData = [
         id: 302,
         title: "Breath control in Ashtanga",
         content: "Discover the importance of breath control in Ashtanga yoga and practice guided exercises. This part focuses on pranayama techniques that enhance energy flow and improve concentration.",
-        video_url: "link 02",
+        video_url: "https://www.youtube.com/embed/BdhqubW1GJE?si=fIN3dBQwvzA5MEBW",
         tipic: "Breath Control",
         date: "09/12/2024",
         video_time: "08 2h 30m",
@@ -111,7 +111,7 @@ const accordionData = [
         id: 402,
         title: "Dynamic sequences in Ashtanga",
         content: "Practice dynamic sequences in Ashtanga yoga to improve coordination and balance. This section offers a structured approach to mastering challenging transitions with ease and confidence.",
-        video_url: "link 02",
+        video_url: "https://www.youtube.com/embed/xRXhpMsLaXo?si=N1Q8z_2NpN3TR3m6",
         tipic: "Dynamic Sequences",
         date: "11/12/2024",
         video_time: "04 3h 40m",
@@ -135,7 +135,7 @@ const accordionData = [
         id: 502,
         title: "Ashtanga yoga for beginners",
         content: "A beginner-friendly guide to starting Ashtanga yoga with simple and effective poses. This section provides clear instructions and tips for building a consistent and enjoyable practice.",
-        video_url: "link 02",
+        video_url: "https://www.youtube.com/embed/Hb4qlwOMQKU?si=pSWJ492mJNAyb-80",
         tipic: "Beginner Ashtanga",
         date: "13/12/2024",
         video_time: "04 3h 40m",
@@ -160,7 +160,7 @@ const accordionData = [
         id: 602,
         title: "Ashtanga flow explained",
         content: "Understand the flow of Ashtanga yoga and how to seamlessly transition between poses. This part emphasizes synchronization of breath with movement, promoting a meditative and energizing experience.",
-        video_url: "link 02",
+        video_url: "https://www.youtube.com/embed/xhxmMnhLGq0?si=ZDxq1HguBTN7Rflo",
         tipic: "Ashtanga Flow",
         date: "03/12/2024",
         video_time: "09 1h 40m",
@@ -316,7 +316,7 @@ const Academy = () => {
 
 
           {/*================================= right side Course content===================== */}
-          <div className="lg:min-h-screen rounded-md  overflow-y-auto">
+          <div className="lg:min-h-screen h-[500px] rounded-md overflow-y-auto custom-scrollbar">
 
             {/* cahat component */}
             <div className="border mb-4 p-6">
