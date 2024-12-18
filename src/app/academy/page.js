@@ -21,7 +21,7 @@ const accordionData = [
         id: 101,
         title: "45-min advance vinyasa yoga",
         content: "This section introduces you to the foundational principles of Hatha yoga, including breathing techniques, basic poses, and their benefits. You'll learn how to align your body and mind through guided exercises designed for beginners.",
-        video_url: "https://www.youtube.com/embed/XWniFyd9r4I?si=o2ALFJQg6-GvrX89",
+        video_url: "https://www.youtube.com/embed/E4BpA2jCB2g?si=phpmPBR7qRN3jTX_",
         tipic: "Yoga",
         date: "03/12/2024",
         video_time: "04 3h 40m",
@@ -54,7 +54,7 @@ const accordionData = [
         id: 201,
         title: "Advanced Hatha yoga postures",
         content: "Dive deeper into Hatha yoga with advanced postures and their benefits for flexibility and strength. This section includes variations of classic poses to challenge your abilities and enhance your practice.",
-        video_url: "link 01",
+        video_url: "https://www.youtube.com/embed/9o0UPuDBM8M?si=NlsZE-4jf6zmqF2t",
         tipic: "Advanced Hatha",
         date: "06/12/2024",
         video_time: "04 1h 40m",
@@ -78,7 +78,7 @@ const accordionData = [
         id: 301,
         title: "Meditation with Hatha yoga",
         content: "Learn how to combine meditation techniques with Hatha yoga for mental clarity and relaxation. This section guides you through mindfulness exercises that complement yoga postures to achieve a holistic sense of well-being.",
-        video_url: "link 01",
+        video_url: "https://www.youtube.com/embed/Tz9d7By2ytQ?si=u-IHN4uIUoMOq-E7",
         tipic: "Meditation Techniques",
         date: "08/12/2024",
         video_time: "04 3h 40m",
@@ -102,7 +102,7 @@ const accordionData = [
         id: 401,
         title: "Building strength with Hatha yoga",
         content: "Focus on strength-building postures in Hatha yoga and their impact on overall fitness. This section includes a detailed breakdown of poses that target core, upper body, and lower body strength.",
-        video_url: "link 01",
+        video_url: "https://www.youtube.com/embed/ehXOS9mMrcU?si=gFpGsXBSwqsw2krB",
         tipic: "Strength Building",
         date: "10/12/2024",
         video_time: "04 3h 40m",
@@ -126,7 +126,7 @@ const accordionData = [
         id: 501,
         title: "Restorative Hatha yoga",
         content: "Explore restorative poses in Hatha yoga that promote deep relaxation and healing. This section emphasizes gentle stretches and supportive postures to rejuvenate your body and mind.",
-        video_url: "link 01",
+        video_url: "https://www.youtube.com/embed/E4BpA2jCB2g?si=p7b4eg6EeSPgstmT",
         tipic: "Restorative Yoga",
         date: "12/12/2024",
         video_time: "04 3h 30m",
@@ -151,7 +151,7 @@ const accordionData = [
         id: 601,
         title: "Advanced Hatha yoga postures",
         content: "Dive deeper into Hatha yoga with advanced postures and their benefits for flexibility and strength. This section includes variations of classic poses to challenge your abilities and enhance your practice.",
-        video_url: "link 01",
+        video_url: "https://www.youtube.com/embed/uUKAYkQZXko?si=iznQa5PndwJypiyN",
         tipic: "Advanced Hatha",
         date: "05/12/2024",
         video_time: "04 3h 40m",
@@ -175,7 +175,7 @@ const accordionData = [
         id: 701,
         title: "Meditation with Hatha yoga",
         content: "Learn how to combine meditation techniques with Hatha yoga for mental clarity and relaxation. This section guides you through mindfulness exercises that complement yoga postures to achieve a holistic sense of well-being.",
-        video_url: "link 01",
+        video_url: "https://www.youtube.com/embed/X--97_D8H8k?si=s3Yf48OHm2mG4cDK",
         tipic: "Meditation Techniques",
         date: "02/12/2024",
         video_time: "04 3h 40m",
@@ -184,7 +184,7 @@ const accordionData = [
         id: 702,
         title: "Breath control in Ashtanga",
         content: "Discover the importance of breath control in Ashtanga yoga and practice guided exercises. This part focuses on pranayama techniques that enhance energy flow and improve concentration.",
-        video_url: "link 02",
+        video_url: "https://www.youtube.com/embed/0OfLE2lBS4I?si=f4geIezN8dfu1CX7",
         tipic: "Breath Control",
         date: "06/12/2024",
         video_time: "04 2h 20m",
@@ -290,7 +290,7 @@ const Academy = () => {
 
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* left side Video */}
+          {/*================================= left side Video ===================== */}
           <div className="lg:col-span-2">
             <iframe width="100%" height="400" src={openItemDetails.video_url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
 
@@ -315,8 +315,8 @@ const Academy = () => {
           </div>
 
 
-          {/* right side Course content */}
-          <div className="lg:min-h-screen rounded-md overflow-y-auto">
+          {/*================================= right side Course content===================== */}
+          <div className="lg:min-h-screen rounded-md  overflow-y-auto">
 
             {/* cahat component */}
             <div className="border mb-4 p-6">
