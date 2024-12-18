@@ -36,7 +36,7 @@ const About = () => {
         {/* right side content */}
         <div className="lg:w-[639px] lg:mt-56 flex items-center order-1 lg:order-2">
           <div>
-            <button className="bg-primary text-white px-8 py-3">About Us</button>
+            <button className="bg-primary/90 hover:bg-primary text-white px-8 py-3">About Us</button>
             <h3 className="lg:text-5xl text-3xl font-noto text-[#3F2700] font-semibold my-6">Why You Choose Us </h3>
             <p className="text-[#555555] leading-9">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using `Content here, content here.</p>
             <div>

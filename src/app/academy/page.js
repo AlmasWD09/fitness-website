@@ -1,7 +1,6 @@
 "use client"
 import { useEffect, useState, } from "react";
 import { IoIosArrowDown } from "react-icons/io";
-import { RiVideoFill } from "react-icons/ri";
 import { FaCircleCheck } from "react-icons/fa6";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,6 +8,7 @@ import { FaHome } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { FaCalendarDays } from "react-icons/fa6";
 import Comment from "../../components/Comment";
+import Chart from "../../components/Chart";
 
 
 // Accordion data
@@ -24,7 +24,7 @@ const accordionData = [
         video_url: "https://www.youtube.com/embed/XWniFyd9r4I?si=o2ALFJQg6-GvrX89",
         tipic: "Yoga",
         date: "03/12/2024",
-        video_time:"04 3h 40m",
+        video_time: "04 3h 40m",
       },
       {
         id: 102,
@@ -33,7 +33,7 @@ const accordionData = [
         video_url: "https://www.youtube.com/embed/kf6yyxMck8Y?si=IBOLucSUZGIybhXB",
         tipic: "Ashtanga Steps",
         date: "04/12/2024",
-        video_time:"02 1h 40m",
+        video_time: "02 1h 40m",
       },
       {
         id: 103,
@@ -42,7 +42,7 @@ const accordionData = [
         video_url: "/video01.mp4",
         tipic: "Yoga Techniques Demo",
         date: "05/12/2024",
-        video_time:"04 1h 55m",
+        video_time: "04 1h 55m",
       }
     ]
   },
@@ -57,7 +57,7 @@ const accordionData = [
         video_url: "link 01",
         tipic: "Advanced Hatha",
         date: "06/12/2024",
-        video_time:"04 1h 40m",
+        video_time: "04 1h 40m",
       },
       {
         id: 202,
@@ -66,7 +66,7 @@ const accordionData = [
         video_url: "link 02",
         tipic: "Ashtanga Flow",
         date: "07/12/2024",
-        video_time:"04 3h 40m",
+        video_time: "04 3h 40m",
       }
     ]
   },
@@ -81,7 +81,7 @@ const accordionData = [
         video_url: "link 01",
         tipic: "Meditation Techniques",
         date: "08/12/2024",
-        video_time:"04 3h 40m",
+        video_time: "04 3h 40m",
       },
       {
         id: 302,
@@ -90,7 +90,7 @@ const accordionData = [
         video_url: "link 02",
         tipic: "Breath Control",
         date: "09/12/2024",
-        video_time:"08 2h 30m",
+        video_time: "08 2h 30m",
       }
     ]
   },
@@ -105,7 +105,7 @@ const accordionData = [
         video_url: "link 01",
         tipic: "Strength Building",
         date: "10/12/2024",
-        video_time:"04 3h 40m",
+        video_time: "04 3h 40m",
       },
       {
         id: 402,
@@ -114,7 +114,7 @@ const accordionData = [
         video_url: "link 02",
         tipic: "Dynamic Sequences",
         date: "11/12/2024",
-        video_time:"04 3h 40m",
+        video_time: "04 3h 40m",
       }
     ]
   },
@@ -129,7 +129,7 @@ const accordionData = [
         video_url: "link 01",
         tipic: "Restorative Yoga",
         date: "12/12/2024",
-        video_time:"04 3h 30m",
+        video_time: "04 3h 30m",
       },
       {
         id: 502,
@@ -138,7 +138,7 @@ const accordionData = [
         video_url: "link 02",
         tipic: "Beginner Ashtanga",
         date: "13/12/2024",
-        video_time:"04 3h 40m",
+        video_time: "04 3h 40m",
       }
     ]
   },
@@ -154,7 +154,7 @@ const accordionData = [
         video_url: "link 01",
         tipic: "Advanced Hatha",
         date: "05/12/2024",
-        video_time:"04 3h 40m",
+        video_time: "04 3h 40m",
       },
       {
         id: 602,
@@ -163,7 +163,7 @@ const accordionData = [
         video_url: "link 02",
         tipic: "Ashtanga Flow",
         date: "03/12/2024",
-        video_time:"09 1h 40m",
+        video_time: "09 1h 40m",
       }
     ]
   },
@@ -178,7 +178,7 @@ const accordionData = [
         video_url: "link 01",
         tipic: "Meditation Techniques",
         date: "02/12/2024",
-        video_time:"04 3h 40m",
+        video_time: "04 3h 40m",
       },
       {
         id: 702,
@@ -187,7 +187,7 @@ const accordionData = [
         video_url: "link 02",
         tipic: "Breath Control",
         date: "06/12/2024",
-        video_time:"04 2h 20m",
+        video_time: "04 2h 20m",
       }
     ]
   },
@@ -195,12 +195,12 @@ const accordionData = [
 
 const Academy = () => {
   const [showAll, setShowAll] = useState(false);
-  const [openItem, setOpenItem] = useState(null); 
+  const [openItem, setOpenItem] = useState(null);
   const [openItemDetails, setOpenItemDetails] = useState(accordionData[0].contentArray[0])
 
   // Handle click to toggle accordion items
   const toggleItem = (id) => {
-    setOpenItem(openItem === id ? null : id); 
+    setOpenItem(openItem === id ? null : id);
   };
 
   const fitnessClasses = [
@@ -317,6 +317,13 @@ const Academy = () => {
 
           {/* right side Course content */}
           <div className="lg:min-h-screen rounded-md overflow-y-auto">
+
+            {/* cahat component */}
+            <div className="border mb-4 p-6">
+              <h2 className="font-noto font-bold text-primaryGray">Your Progress</h2>
+              <Chart />
+            </div>
+
             <div className="">
               {accordionData.map((item) => (
                 <div
@@ -364,7 +371,7 @@ const Academy = () => {
             <h2 className="md:text-[32px] font-medium font-noto text-gray-400">
               More Class Like This
             </h2>
-            {!showAll && ( 
+            {!showAll && (
               <button
                 className="text-primary md:text-[32px] font-medium font-noto underline"
                 onClick={handleViewAllClick}

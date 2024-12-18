@@ -10,7 +10,7 @@ const FreeClass = () => {
           <div>
             <h3 className="lg:text-4xl font-serif text-2xl font-bold text-[#3F2700]">Free class</h3>
             <p className="lg:my-6 my-3">This class is a demo class, you get all the exercises, guidelines and tips related to fitness in our fitness course. So don`t delay and join our community now.</p>
-            <button className="bg-[#B47000] text-white px-6  lg:px-8 py-3">Join Our Community</button>
+            <button className="bg-primary/90 hover:bg-primary text-white px-6  lg:px-8 py-3">Join Our Community</button>
           </div>
         </div>
 

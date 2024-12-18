@@ -93,7 +93,7 @@ const handleCart = () =>{
             <div className="flex items-center gap-8">
               <div onClick={()=>handleCart()} className="cursor-pointer">
                 <HiOutlineShoppingCart className="relative text-2xl " />
-                <p className="absolute -top-1 left-2 w-6 h-6 bg-primary  rounded-full flex justify-center items-center text-xs"> {cartItems.length}</p>
+                <p className="absolute -top-1 left-2 w-6 h-6 bg-primary text-white rounded-full flex justify-center items-center text-xs"> {cartItems.length}</p>
               </div>
               <FiSearch className="text-2xl" />
             </div>
