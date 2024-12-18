@@ -7,7 +7,6 @@ import Shop from "../components/Shop";
 import Testimonial from "../components/Testimonial";
 
 
-
 export default function Home() {
   return (
     <>
