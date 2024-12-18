@@ -53,9 +53,17 @@ const Shop = () => {
         setShowAll(true);
     };
 
-    const handleCartClick = (id) =>{
-        router.push("/cart");
-    }
+    const handleCartClick = (shop) => {
+        const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+        const updatedCart = [...cartItems, shop];
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        router.push('/cart')
+
+        // Dispatch custom event
+        const event = new Event("cartUpdate");
+        window.dispatchEvent(event);
+    };
+
     return (
         <section className="container mx-auto px-4 mt-8 md:mt-20">
             <div>
@@ -63,7 +71,7 @@ const Shop = () => {
                     <h2 className="text-[48px] font-medium font-noto text-[#3F2700]">
                         Shop
                     </h2>
-                    {!showAll && ( // Only show "View All" if not all items are displayed
+                    {!showAll && (
                         <button
                             className="text-primary text-[24px] font-medium font-noto underline"
                             onClick={handleViewAllClick}
@@ -76,8 +84,8 @@ const Shop = () => {
                     {displayedshops.map((shop, idx) => (
                         <div key={idx} className="lg:w-[300px] border p-5 ">
                             <div className="flex justify-end">
-                                <button onClick={()=>handleCartClick(shop.id)} className="text-primary hover:bg-primaryGray/10 p-4 rounded-full">
-                                <RiShoppingCartLine className="text-2xl" />
+                                <button onClick={() => handleCartClick(shop)} className="text-primary hover:bg-primaryGray/10 p-4 rounded-full">
+                                    <RiShoppingCartLine className="text-2xl" />
                                 </button>
                             </div>
                             <div className="flex lg:py-16 justify-center">

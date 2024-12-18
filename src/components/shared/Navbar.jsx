@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FiSearch } from "react-icons/fi";
@@ -10,8 +10,25 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 
 const Navbar = () => {
   const [getMenu, setMenu] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
 
-  const itemsSuper = 0;
+
+  useEffect(() => {
+    const updateCartItems = () => {
+      const storedCartItems = JSON.parse(localStorage.getItem("cart")) || [];
+      setCartItems(storedCartItems);
+    };
+
+    // custom dispatch here.....
+    updateCartItems();
+    window.addEventListener("cartUpdate", updateCartItems);
+
+    // Clean up event listener
+    return () => {
+      window.removeEventListener("cartUpdate", updateCartItems);
+    };
+  }, []);
+
 
   const navLinks = [
     {
@@ -82,7 +99,7 @@ const Navbar = () => {
             <div className="flex items-center gap-8">
             <div>
             <HiOutlineShoppingCart className="relative text-2xl"/>
-            <p className="absolute -top-1 left-2 w-6 h-6 bg-primary text-white rounded-full flex justify-center items-center text-xs">0</p>
+            <p className="absolute -top-1 left-2 w-6 h-6 bg-primary  rounded-full flex justify-center items-center text-xs"> {cartItems.length}</p>
             </div>
             <FiSearch className="text-2xl"/>
             </div>
@@ -97,29 +114,7 @@ const Navbar = () => {
 
 
       {/* mobile responsive section  */}
-      <div
-        className={`h-screen overflow-y-auto w-full lg:hidden  absolute z-[9999]   transition-all bg-white ease-in-out duration-300 transform ${
-          getMenu ? "translate-x-0" : "-translate-x-full"
-        }`}
-      >
-        <div className="p-10 ">
-          <ul className=" flex flex-col gap-6">
-            {navLinks.map((item) => (
-              <Link
-                onClick={() => setMenu(false)}
-                key={item.path}
-                href={item.path}
-              >
-                <li className="hover:text-primary">{item.title}</li>
-              </Link>
-            ))}
-          </ul>
-          <div className="flex flex-col gap-4 mt-4">
-            <button className="border border-primary px-6 py-2">Login</button>
-            <button className="bg-primary text-white px-6 py-2">Sign Up</button>
-           </div>
-        </div>
-      </div>
+    
     </div>
   );
 };
